@@ -1,4 +1,4 @@
-package PACKAGE_NAME;
-
-public class projetSerieux {
+public class projetSerieux
+{
+    private String test = "Projet Serieux";
 }
