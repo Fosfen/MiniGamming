@@ -1,4 +1,6 @@
 package Model;
 
-public class Pendu extends Mots{
+public class Pendu extends Mots
+{
+
 }

@@ -1,4 +1,6 @@
 package Model;
 
-public class Motus extends Mots{
+public class Motus extends Mots
+{
+
 }

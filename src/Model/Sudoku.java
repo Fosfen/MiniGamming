@@ -1,5 +1,6 @@
 package Model;
 
-public class Sudoku extends AbstractSudoku{
+public class Sudoku extends AbstractSudoku
+{
 
 }

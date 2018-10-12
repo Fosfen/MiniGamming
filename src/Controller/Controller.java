@@ -1,4 +1,6 @@
 package Controller;
 
-public class Controller extends AbstractController{
+public class Controller extends AbstractController
+{
+
 }

@@ -1,4 +1,8 @@
 package View;
 
-public abstract class Frame {
+import Observer.Observable;
+
+public abstract class Frame implements Observable
+{
+
 }

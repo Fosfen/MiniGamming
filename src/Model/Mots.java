@@ -1,4 +1,6 @@
 package Model;
 
-public abstract class Mots extends AbstractModel{
+public abstract class Mots extends AbstractModel
+{
+
 }

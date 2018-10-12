@@ -1,4 +1,6 @@
 package Model;
 
-public class SudokuLettres extends Sudoku{
+public class SudokuLettres extends Sudoku
+{
+
 }

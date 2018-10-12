@@ -1,4 +1,6 @@
 package Model;
 
-public class MotsMeles extends Grille{
+public class MotsMeles extends Grille
+{
+
 }

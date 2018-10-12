@@ -1,4 +1,8 @@
 package Observer;
 
-public interface Observable {
+public interface Observable
+{
+    void addObserver (Observer obs);
+    void removeObserver();
+    void notifyObserver ();
 }
