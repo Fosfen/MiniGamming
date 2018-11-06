@@ -6,7 +6,8 @@ import java.util.Random;
 public abstract class Mots extends AbstractModel
 {
     protected String reponse; // Mot à trouver
-    protected String choix; // Choix du joueur
+    protected String choix; // Le choix du joueur
+    protected int nbEssais; // Nombre d'essais que le joueur à tenté
 
     // target : valeur correspondant à la ligne du dictionnaire qui sera choisie
     private final int target = new Random().nextInt(369086)+1;
@@ -18,9 +19,16 @@ public abstract class Mots extends AbstractModel
         super();
 
         this.choix = "";
-        this.reponse = genererMot(new File("src/resCode/dictionnaire.txt")); // Géneration du mot à trouver à partir d'un fichier //TODO
+        this.nbEssais = 0;
+        this.reponse = genererMot(new File("src/resCode/dictionnaire.txt")); // Géneration du mot à trouver à partir d'un fichier
     }
 
+    public String getReponse()
+    {
+        return this.reponse;
+    }
+
+    // Génère un mot aléatoire à partir du dictionnaire
     private String genererMot(File dictionnaire)
     {
         try
@@ -53,8 +61,20 @@ public abstract class Mots extends AbstractModel
         return "";
     }
 
-    public String getReponse()
+    // L'utilisateur fait un choix du mot à deviner
+    private void faireUnChoix (String choix)
     {
-        return this.reponse;
+        this.choix = choix;
+        if (choix == reponse)
+        {
+            bonChoix();
+        }
+        else
+        {
+            mauvaisChoix();
+        }
     }
+
+    protected abstract void mauvaisChoix();
+    protected abstract void bonChoix();
 }
