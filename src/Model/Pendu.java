@@ -11,8 +11,10 @@ public class Pendu extends Mots
         super();
     }
 
+    // L'utilisateur choisi une lettre
     private void choisirLettre(char lettre)
     {
+        // On vérifie si la lettre est présente dans le mot réponse
         char lettreTemp = '\\';
         int i = 0;
         while (i < this.reponse.length || lettreTemp != lettre)
@@ -21,6 +23,7 @@ public class Pendu extends Mots
             i++;
         }
 
+        // On fait le traitement en fonction
         if (i == this.reponse.length)
         {
             this.bonneLettre();
@@ -30,15 +33,18 @@ public class Pendu extends Mots
             mauvaiseLettre();
         }
 
+        // On ajoute la lettre aux lettres choisies et on vérifie si la partie est terminée
         this.lettresChoisies.add(lettre);
         this.verifierFinPartie();
     }
 
+    // La lettre choisie est bonne, on effectue le traitement
     private void bonneLettre()
     {
 
     }
 
+    // La lettre choisie n'est pas bonne, on effectue le traitement
     private void mauvaiseLettre()
     {
 

@@ -76,11 +76,15 @@ public abstract class Mots extends AbstractModel
         }
     }
 
+    // Un tour a été joué, on vérifie si la partie est terminée où si elle continue
     protected void verifierFinPartie()
     {
 
     }
 
+    // Le choix du mot réponse est mauvais, on effectue le traiement
     protected abstract void mauvaisChoix();
+
+    // Le choix du mot réponse est bon, on effectue le traitement
     protected abstract void bonChoix();
 }
