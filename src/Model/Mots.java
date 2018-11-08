@@ -1,11 +1,12 @@
 package Model;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Mots extends AbstractModel
 {
-    protected String reponse; // Mot à trouver
+    protected char[] reponse; // Mot à trouver
     protected String choix; // Le choix du joueur
     protected int nbEssais; // Nombre d'essais que le joueur à tenté
 
@@ -20,10 +21,10 @@ public abstract class Mots extends AbstractModel
 
         this.choix = "";
         this.nbEssais = 0;
-        this.reponse = genererMot(new File("src/resCode/dictionnaire.txt")); // Géneration du mot à trouver à partir d'un fichier
+        this.reponse = genererMot(new File("src/resCode/dictionnaire.txt")).toCharArray(); // Géneration du mot à trouver à partir d'un fichier
     }
 
-    public String getReponse()
+    public char[] getReponse()
     {
         return this.reponse;
     }
@@ -65,7 +66,7 @@ public abstract class Mots extends AbstractModel
     private void faireUnChoix (String choix)
     {
         this.choix = choix;
-        if (choix == reponse)
+        if (choix.toCharArray() == reponse)
         {
             bonChoix();
         }
@@ -73,6 +74,11 @@ public abstract class Mots extends AbstractModel
         {
             mauvaisChoix();
         }
+    }
+
+    protected void verifierFinPartie()
+    {
+
     }
 
     protected abstract void mauvaisChoix();
