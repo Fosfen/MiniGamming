@@ -3,7 +3,8 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 /*
- * Classe permettant de créer un icone à partir d'un fichier tde l'arborescence du projet
+ * @author : Duthoit Raphael
+ * Classe permettant de créer un icone à partir d'un fichier de l'arborescence du projet
  */
 public class JIcone extends JLabel{
     private ImageIcon icone;

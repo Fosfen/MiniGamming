@@ -1,9 +1,10 @@
-import View.MenuFrame;
+import View.Accueil;
 
 public class Main {
 
     public static void main(String[] args) {
-        MenuFrame menu = new MenuFrame();
+        //On lance l'Acceuil
+        Accueil menu = new Accueil();
     }
 
 }

@@ -13,18 +13,18 @@ import java.io.IOException;
  */
 
 
-public class JButtonMenu extends JButton implements MouseListener {
+public class JMenuButton extends JButton implements MouseListener {
     private static int width = (int) (800/100*75);
     private static int height = (int) (220/100*75);
 
-    public JButtonMenu(String text) {
-        this.setPreferredSize(new Dimension(JButtonMenu.width,JButtonMenu.height));
+    public JMenuButton(String text) {
+        this.setPreferredSize(new Dimension(JMenuButton.width, JMenuButton.height));
         this.setContentAreaFilled(false);
         this.setBorderPainted(false);
         this.setBorder(null);
         this.setRolloverEnabled(false);
         this.addMouseListener(this);
-        ImageIcon II = new ImageIcon(new ImageIcon(getClass().getResource("res/buttonDefaultNoText.png")).getImage().getScaledInstance(JButtonMenu.width, JButtonMenu.height, Image.SCALE_DEFAULT));
+        ImageIcon II = new ImageIcon(new ImageIcon(getClass().getResource("res/buttonDefaultNoText.png")).getImage().getScaledInstance(JMenuButton.width, JMenuButton.height, Image.SCALE_DEFAULT));
         this.setIcon(II);
         this.setHorizontalTextPosition(JButton.CENTER);
         this.setVerticalTextPosition(JButton.CENTER);
@@ -42,14 +42,14 @@ public class JButtonMenu extends JButton implements MouseListener {
        //foreground
     }
 
-    public JButtonMenu(String text, int fontSize) {
-        this.setPreferredSize(new Dimension(JButtonMenu.width,JButtonMenu.height));
+    public JMenuButton(String text, int fontSize) {
+        this.setPreferredSize(new Dimension(JMenuButton.width, JMenuButton.height));
         this.setContentAreaFilled(false);
         this.setBorderPainted(false);
         this.setBorder(null);
         this.setRolloverEnabled(false);
         this.addMouseListener(this);
-        ImageIcon II = new ImageIcon(new ImageIcon(getClass().getResource("res/buttonDefaultNoText.png")).getImage().getScaledInstance(JButtonMenu.width,JButtonMenu.height, Image.SCALE_DEFAULT));
+        ImageIcon II = new ImageIcon(new ImageIcon(getClass().getResource("res/buttonDefaultNoText.png")).getImage().getScaledInstance(JMenuButton.width, JMenuButton.height, Image.SCALE_DEFAULT));
         this.setIcon(II);
         this.setHorizontalTextPosition(JButton.CENTER);
         this.setVerticalTextPosition(JButton.CENTER);
@@ -72,28 +72,28 @@ public class JButtonMenu extends JButton implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        ImageIcon II = new ImageIcon(new ImageIcon(getClass().getResource("res/buttonPressedNoText.png")).getImage().getScaledInstance(JButtonMenu.width,JButtonMenu.height, Image.SCALE_DEFAULT));
+        ImageIcon II = new ImageIcon(new ImageIcon(getClass().getResource("res/buttonPressedNoText.png")).getImage().getScaledInstance(JMenuButton.width, JMenuButton.height, Image.SCALE_DEFAULT));
        //foreground
         this.setIcon(II);
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        ImageIcon II = new ImageIcon(new ImageIcon(getClass().getResource("res/buttonEnteredNoText.png")).getImage().getScaledInstance(JButtonMenu.width,JButtonMenu.height, Image.SCALE_DEFAULT));
+        ImageIcon II = new ImageIcon(new ImageIcon(getClass().getResource("res/buttonEnteredNoText.png")).getImage().getScaledInstance(JMenuButton.width, JMenuButton.height, Image.SCALE_DEFAULT));
         //foreground
         this.setIcon(II);
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        ImageIcon II = new ImageIcon(new ImageIcon(getClass().getResource("res/buttonEnteredNoText.png")).getImage().getScaledInstance(JButtonMenu.width,JButtonMenu.height, Image.SCALE_DEFAULT));
+        ImageIcon II = new ImageIcon(new ImageIcon(getClass().getResource("res/buttonEnteredNoText.png")).getImage().getScaledInstance(JMenuButton.width, JMenuButton.height, Image.SCALE_DEFAULT));
        //foreground
         this.setIcon(II);
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        ImageIcon II = new ImageIcon(new ImageIcon(getClass().getResource("res/buttonDefaultNoText.png")).getImage().getScaledInstance(JButtonMenu.width,JButtonMenu.height, Image.SCALE_DEFAULT));
+        ImageIcon II = new ImageIcon(new ImageIcon(getClass().getResource("res/buttonDefaultNoText.png")).getImage().getScaledInstance(JMenuButton.width, JMenuButton.height, Image.SCALE_DEFAULT));
         //foreground
         this.setIcon(II);
     }
