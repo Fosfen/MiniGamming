@@ -17,7 +17,7 @@ public class JMenu extends JPanel {
           private JPanel panelButton;
           private JPanel panelLogo;
 
-    public JMenu(Accueil support, PenduController controller) {
+    public JMenu(Accueil support) {
         this.MainFrame = support;
 
         //Définition des sous Panels
