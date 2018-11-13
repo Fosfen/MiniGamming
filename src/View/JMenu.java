@@ -1,5 +1,8 @@
 package View;
 
+import Controller.AbstractController;
+import Controller.PenduController;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,7 +17,7 @@ public class JMenu extends JPanel {
           private JPanel panelButton;
           private JPanel panelLogo;
 
-    public JMenu(Accueil support) {
+    public JMenu(Accueil support, PenduController controller) {
         this.MainFrame = support;
 
         //Définition des sous Panels
@@ -44,7 +47,7 @@ public class JMenu extends JPanel {
         setLayout(new BorderLayout());
         this.add(panelLogo, BorderLayout.LINE_START);
         this.add(panelButton,BorderLayout.CENTER);
-        this.add(new JMot(19),BorderLayout.SOUTH);
+        this.add(new JMot(controller.model.getReponse().length),BorderLayout.SOUTH);
     }
 
     //Méthode appellée par la lambda expression permettant de charger un LayoutMenu avec un PanelClassement

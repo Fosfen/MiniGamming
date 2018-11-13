@@ -46,6 +46,8 @@ public abstract class Mots extends AbstractModel
                 }
 
                 String motTarget = br.readLine();
+                System.out.println(motTarget + " : " + motTarget.length());
+
                 return motTarget;
             }
             catch (IOException exception)

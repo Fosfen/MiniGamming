@@ -6,10 +6,9 @@ import Model.Pendu;
 
 public class PenduController extends MotsController
 {
-    protected String reponse;
 
-    public PenduController(AbstractModel pendu)
+    public PenduController(Pendu pendu)
     {
-
+        this.model = pendu;
     }
 }
