@@ -14,15 +14,12 @@ import java.util.ArrayList;
 public class Accueil extends JFrame {
 
     private JPanel Panel;
-    protected ArrayList<AbstractController> controllers;
 
-    public Accueil(PenduController controller)
+    public Accueil()
     {
-        this.controllers = controllers;
-
         setVisible(true);
         setTitle(JStatic.StaticTitre + "Menu Principal");
-        Panel = new JMenu(this, controller);
+        Panel = new JMenu(this);
         setContentPane(Panel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
