@@ -9,5 +9,6 @@ public class JStatic {
         public static Color BackgroundColor = new Color (100,150, 190);
         public static Color NavbarBackgroundColor = new Color (130,200, 220);
         public static Color HelpFrameBackgroundColor = new Color(120, 150 , 170);
+        public static Color CouleurMotATrouver = new Color(173, 244, 183);
         public static String StaticTitre = "MiniGamming V1.0 : ";
 }

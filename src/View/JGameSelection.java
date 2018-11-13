@@ -10,23 +10,25 @@ public class JGameSelection extends JPanel {
 
 
     public JGameSelection() {
-
+/*
         setLayout(new GridLayout(3,3));
         setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
-        JPanelGameSelect p1 = new JPanelGameSelect("Sudoku");
-        JPanelGameSelect p2 = new JPanelGameSelect("Motus");
-        JPanelGameSelect p3 = new JPanelGameSelect("Pendu");
-        JPanelGameSelect p4 = new JPanelGameSelect("Sudoku Lettres");
-        JPanelGameSelect p5 = new JPanelGameSelect("jeux 5");
-        JPanelGameSelect p6 = new JPanelGameSelect("jeux 6");
+*/      setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        setBackground(JStatic.BackgroundColor);
+        Font f = new Font("Andika basic", Font.BOLD,70);
+        JLabel TitlePendu = new JLabel("Pendu");
+        TitlePendu.setFont(f);
+        JPlayButton buttonPendu = new JPlayButton();
 
-        add(p1);
-        add(p2);
-        add(p3);
-        add(p4);
-        add(p5);
-        add(p6);
+        JLabel TitleSudoku = new JLabel("Sudoku");
+        TitleSudoku.setFont(f);
+        JLabel TitleMotus = new JLabel("Motus");
+        TitleMotus.setFont(f);
 
-
+        buttonPendu.addActionListener(arg0 -> new LayoutJeu(new JPendu(),"Le Pendu"));
+        add(TitlePendu);
+        add(buttonPendu);
+        add(TitleSudoku);
+        add(TitleMotus);
     }
 }

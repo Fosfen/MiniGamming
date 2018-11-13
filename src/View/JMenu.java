@@ -47,7 +47,7 @@ public class JMenu extends JPanel {
         setLayout(new BorderLayout());
         this.add(panelLogo, BorderLayout.LINE_START);
         this.add(panelButton,BorderLayout.CENTER);
-        this.add(new JMot(controller.model.getReponse().length),BorderLayout.SOUTH);
+        //this.add(new JMot(controller.model.getReponse().length),BorderLayout.SOUTH);
     }
 
     //Méthode appellée par la lambda expression permettant de charger un LayoutMenu avec un PanelClassement
