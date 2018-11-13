@@ -11,7 +11,7 @@ public abstract class AbstractModel implements Observable
     //public abstract void lancerPartie(); TODO
 
     // Méthodes du pattern Observer
-    private ArrayList<Observer> observers = new ArrayList<>();
+    protected ArrayList<Observer> observers = new ArrayList<>();
 
     public void addObserver(Observer obs)
     {
@@ -23,11 +23,5 @@ public abstract class AbstractModel implements Observable
         this.observers = new ArrayList<>();
     }
 
-    public void notifyObserver ()
-    {
-        for (Observer obs : this.observers)
-        {
-            obs.update();
-        }
-    }
+    public abstract void notifyObserver();
 }

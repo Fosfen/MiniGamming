@@ -1,7 +1,6 @@
 package Model;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Mots extends AbstractModel
@@ -82,7 +81,7 @@ public abstract class Mots extends AbstractModel
 
     }
 
-    // Le choix du mot réponse est mauvais, on effectue le traiement
+    // Le choix du mot réponse est mauvais, on effectue le traitement
     protected abstract void mauvaisChoix();
 
     // Le choix du mot réponse est bon, on effectue le traitement

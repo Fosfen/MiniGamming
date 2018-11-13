@@ -1,6 +1,9 @@
 package View;
 
+import Controller.AbstractController;
+
 import javax.swing.*;
+import java.util.ArrayList;
 
 /*
  * @author Duthoit Raphael
@@ -10,8 +13,11 @@ import javax.swing.*;
 public class Accueil extends JFrame {
 
     private JPanel Panel;
+    protected ArrayList<AbstractController> controllers;
 
-    public Accueil() {
+    public Accueil(ArrayList<AbstractController> controllers)
+    {
+        this.controllers = controllers;
 
         setVisible(true);
         setTitle(JStatic.StaticTitre + "Menu Principal");

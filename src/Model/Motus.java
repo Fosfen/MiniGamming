@@ -1,5 +1,7 @@
 package Model;
 
+import Observer.Observer;
+
 public class Motus extends Mots
 {
     public Motus ()
@@ -17,5 +19,13 @@ public class Motus extends Mots
     protected void mauvaisChoix()
     {
 
+    }
+
+    public void notifyObserver()
+    {
+        for (Observer obs : this.observers)
+        {
+            obs.update();
+        }
     }
 }

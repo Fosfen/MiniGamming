@@ -1,8 +1,20 @@
-import View.Accueil;
+import Model.*;
+import Controller.*;
+import View.*;
 
-public class Main {
+import java.util.ArrayList;
 
-    public static void main(String[] args) {
+public class Main
+{
+    public static void main(String[] args)
+    {
+        ArrayList<AbstractController> controllers = new ArrayList<>();
+
+        AbstractModel pendu = new Pendu();
+        AbstractController penduController = new PenduController(pendu);
+        controllers.add(penduController);
+
         //On lance l'Acceuil
-        Accueil menu = new Accueil();
-}}
+        Accueil menu = new Accueil(controllers);
+    }
+}

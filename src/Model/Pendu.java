@@ -1,5 +1,7 @@
 package Model;
 
+import Observer.Observer;
+
 import java.util.ArrayList;
 
 public class Pendu extends Mots
@@ -60,5 +62,13 @@ public class Pendu extends Mots
     protected void mauvaisChoix()
     {
         // TODO
+    }
+
+    public void notifyObserver()
+    {
+        for (Observer obs : this.observers)
+        {
+            obs.update();
+        }
     }
 }
