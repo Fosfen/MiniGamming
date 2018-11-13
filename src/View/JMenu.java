@@ -13,11 +13,11 @@ import java.awt.*;
 
 
 public class JMenu extends JPanel {
-          private Accueil MainFrame;
-          private JPanel panelButton;
-          private JPanel panelLogo;
+    private Accueil MainFrame;
+    private JPanel panelButton;
+    private JPanel panelLogo;
 
-    public JMenu(Accueil support, PenduController controller) {
+    public JMenu(Accueil support) {
         this.MainFrame = support;
 
         //Définition des sous Panels
@@ -31,7 +31,7 @@ public class JMenu extends JPanel {
         panelButton.setLayout(new BoxLayout(panelButton, BoxLayout.PAGE_AXIS));
 
         JMenuButton PlayButton = new JMenuButton("JOUER");
-        panelButton.add(Box.createRigidArea(new Dimension(0,30)));
+        panelButton.add(Box.createRigidArea(new Dimension(0, 30)));
         PlayButton.addActionListener(arg0 -> LoadGameSelection());
         panelButton.add(PlayButton);
 
@@ -46,18 +46,17 @@ public class JMenu extends JPanel {
         panelButton.add(ExitButton);
         setLayout(new BorderLayout());
         this.add(panelLogo, BorderLayout.LINE_START);
-        this.add(panelButton,BorderLayout.CENTER);
+        this.add(panelButton, BorderLayout.CENTER);
         //this.add(new JMot(controller.model.getReponse().length),BorderLayout.SOUTH);
     }
+        //Méthode appellée par la lambda expression permettant de charger un LayoutMenu avec un PanelClassement
+        public void LoadClassement() {
+            this.MainFrame.setVisible(false);
+            new LayoutMenu(new JClassement(), "Classement", this.MainFrame);
+        }
 
-    //Méthode appellée par la lambda expression permettant de charger un LayoutMenu avec un PanelClassement
-    public void LoadClassement() {
-        this.MainFrame.setVisible(false);
-        new LayoutMenu(new JClassement(), "Classement", this.MainFrame);
+        public void LoadGameSelection() {
+            this.MainFrame.setVisible(false);
+            new LayoutMenu(new JGameSelection(), "Choix du jeu", this.MainFrame);
+        }
     }
-
-    public void LoadGameSelection() {
-        this.MainFrame.setVisible(false);
-        new LayoutMenu(new JGameSelection(), "Choix du jeu", this.MainFrame);
-    }
-}
