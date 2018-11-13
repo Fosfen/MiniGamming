@@ -7,6 +7,10 @@ import java.util.ArrayList;
 
 public abstract class AbstractModel implements Observable
 {
+    // Méthodes générales à tous les jeux
+    //public abstract void lancerPartie(); TODO
+
+    // Méthodes du pattern Observer
     private ArrayList<Observer> observers = new ArrayList<>();
 
     public void addObserver(Observer obs)
