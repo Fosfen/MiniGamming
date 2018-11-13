@@ -8,13 +8,10 @@ public class Main
 {
     public static void main(String[] args)
     {
-        ArrayList<AbstractController> controllers = new ArrayList<>();
-
-        AbstractModel pendu = new Pendu();
-        AbstractController penduController = new PenduController(pendu);
-        controllers.add(penduController);
+        Pendu pendu = new Pendu();
+        PenduController penduController = new PenduController(pendu);
 
         //On lance l'Acceuil
-        Accueil menu = new Accueil(controllers);
+        Accueil menu = new Accueil(penduController);
     }
 }

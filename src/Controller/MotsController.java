@@ -4,5 +4,10 @@ import Model.Mots;
 
 public abstract class MotsController extends AbstractController
 {
-    protected Mots model;
+    public Mots model;
+
+    public MotsController()
+    {
+
+    }
 }

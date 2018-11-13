@@ -20,14 +20,14 @@ public class JPendu extends JPanel {
 
 class JMot extends JPanel {
 
-    private int mot;
+    private int length;
     ArrayList<JLabel> leslettres = new ArrayList<>();
 
     public JMot(int longeur){
-            this.mot = longeur;
+            this.length = longeur;
             setLayout(new FlowLayout(FlowLayout.CENTER));
 
-        for(int i=1 ; i<mot ; i++) {
+        for(int i=1 ; i<=length ; i++) {
             JLabel unknown = new JLabel("_"); //lettre non trouvée
             this.leslettres.add(unknown);
             unknown.setFont(new Font("Andika basic", Font.BOLD, 70));
