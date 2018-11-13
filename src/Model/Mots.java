@@ -1,6 +1,7 @@
 package Model;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Mots extends AbstractModel

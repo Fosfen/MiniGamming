@@ -23,5 +23,11 @@ public abstract class AbstractModel implements Observable
         this.observers = new ArrayList<>();
     }
 
-    public abstract void notifyObserver();
+    public void notifyObserver()
+    {
+        for (Observer obs : this.observers)
+        {
+            obs.update();
+        }
+    }
 }
