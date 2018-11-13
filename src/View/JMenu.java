@@ -17,7 +17,7 @@ public class JMenu extends JPanel {
           private JPanel panelButton;
           private JPanel panelLogo;
 
-    public JMenu(Accueil support, PenduController controller) {
+    public JMenu(Accueil support) {
         this.MainFrame = support;
 
         //Définition des sous Panels
@@ -47,7 +47,7 @@ public class JMenu extends JPanel {
         setLayout(new BorderLayout());
         this.add(panelLogo, BorderLayout.LINE_START);
         this.add(panelButton,BorderLayout.CENTER);
-        this.add(new JMot(controller.model.getReponse().length),BorderLayout.SOUTH);
+        this.add(new JMot(10),BorderLayout.SOUTH);
     }
 
     //Méthode appellée par la lambda expression permettant de charger un LayoutMenu avec un PanelClassement

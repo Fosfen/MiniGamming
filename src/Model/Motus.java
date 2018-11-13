@@ -20,12 +20,4 @@ public class Motus extends Mots
     {
 
     }
-
-    public void notifyObserver()
-    {
-        for (Observer obs : this.observers)
-        {
-            obs.update();
-        }
-    }
 }
