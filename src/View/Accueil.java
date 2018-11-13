@@ -26,7 +26,6 @@ public class Accueil extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         setResizable(false);
-
     }
 
 }
