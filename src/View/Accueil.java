@@ -25,5 +25,4 @@ public class Accueil extends JFrame {
         this.pack();
         setResizable(false);
     }
-
 }
