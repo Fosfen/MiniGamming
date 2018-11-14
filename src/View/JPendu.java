@@ -1,19 +1,36 @@
 package View;
 
+import Controller.AbstractController;
+import Controller.PenduController;
+import Model.Pendu;
+
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 import java.util.ArrayList;
 
-public class JPendu extends JPanel {
+public class JPendu extends JPanel
+{
+    private Pendu pendu = new Pendu();
+    private AbstractController penduController = new PenduController(pendu);
 
     private JMot lemotatrouver;
 
-    public JPendu(){
-        lemotatrouver = new JMot(10);
+    public JPendu()
+    {
+        lemotatrouver = new JMot(pendu.getReponse().length);
         setLayout(new BorderLayout());
         setBackground(JStatic.BackgroundColor);
         add(lemotatrouver, BorderLayout.NORTH);
+
+        // TODO Seb : retirer en mode graphique
+        JButton jouer = new JButton("JOUER");
+        jouer.addActionListener(arg0 -> lancerPartie());
+        add(jouer);
+    }
+
+    public void lancerPartie()
+    {
+        this.pendu.lancerPartie();
     }
 }
 

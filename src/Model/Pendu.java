@@ -3,6 +3,7 @@ package Model;
 import Observer.Observer;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Pendu extends Mots
 {
@@ -11,6 +12,16 @@ public class Pendu extends Mots
     public Pendu ()
     {
         super();
+        this.lettresChoisies = new ArrayList<>();
+    }
+
+    protected void jouerTour()
+    {
+        // TODO Julien
+        // TODO intégrer la fonctionnalité > passer du mode console au mode graphique
+        System.out.println("Choisit une lettre bro");
+        Scanner sc = new Scanner(System.in);
+        this.choisirLettre(sc.next().charAt(0));
     }
 
     // L'utilisateur choisi une lettre
@@ -40,30 +51,35 @@ public class Pendu extends Mots
         }
 
         // On ajoute la lettre aux lettres choisies et on vérifie si la partie est terminée
+        this.lettresChoisies.add(lettre);
+        this.nbEssais ++;
         this.verifierFinPartie();
     }
 
     // La lettre choisie est bonne, on effectue le traitement
     private void bonneLettre(char lettre)
     {
-
+        // TODO
+        System.out.println("Bonne lettre");
     }
 
     // La lettre choisie n'est pas bonne, on effectue le traitement
     private void mauvaiseLettre(char lettre)
     {
-
+        // TODO
+        System.out.println("Mauvaise lettre");
     }
 
-    @Override
-    protected void bonChoix()
+    // Un tour a été joué, on vérifie si la partie est terminée où si elle continue
+    protected void verifierFinPartie()
     {
-        // TODO
-    }
-
-    @Override
-    protected void mauvaisChoix()
-    {
-        // TODO
+        if (nbEssais < 3)
+        {
+            jouerTour();
+        }
+        else
+        {
+            this.finPartie();
+        }
     }
 }

@@ -50,12 +50,12 @@ public class JMenu extends JPanel {
         //this.add(new JMot(controller.model.getReponse().length),BorderLayout.SOUTH);
     }
         //Méthode appellée par la lambda expression permettant de charger un LayoutMenu avec un PanelClassement
-        public void LoadClassement() {
+        private void LoadClassement() {
             this.MainFrame.setVisible(false);
             new LayoutMenu(new JClassement(), "Classement", this.MainFrame);
         }
 
-        public void LoadGameSelection() {
+        private void LoadGameSelection() {
             this.MainFrame.setVisible(false);
             new LayoutMenu(new JGameSelection(), "Choix du jeu", this.MainFrame);
         }

@@ -2,6 +2,8 @@ package Model;
 
 import Observer.Observer;
 
+import java.util.Scanner;
+
 public class Motus extends Mots
 {
     public Motus ()
@@ -9,15 +11,15 @@ public class Motus extends Mots
         super();
     }
 
-    @Override
-    protected void bonChoix()
+    protected void verifierFinPartie()
     {
 
     }
 
-    @Override
-    protected void mauvaisChoix()
+    protected void jouerTour()
     {
-
+        // TODO Julien
+        // TODO intégrer la fonctionnalité > passer du mode console au mode graphique
+        Scanner sc = new Scanner(System.in);
     }
 }

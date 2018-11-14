@@ -47,7 +47,6 @@ public abstract class Mots extends AbstractModel
                 }
 
                 String motTarget = br.readLine();
-                System.out.println(motTarget + " : " + motTarget.length());
 
                 return motTarget;
             }
@@ -70,23 +69,17 @@ public abstract class Mots extends AbstractModel
         this.choix = choix;
         if (choix.toCharArray() == reponse)
         {
-            bonChoix();
+
         }
         else
         {
-            mauvaisChoix();
+
         }
     }
 
-    // Un tour a été joué, on vérifie si la partie est terminée où si elle continue
-    protected void verifierFinPartie()
+    protected void finPartie()
     {
-
+        // TODO
+        System.out.println("Le mot à trouver était : " + String.valueOf(this.reponse));
     }
-
-    // Le choix du mot réponse est mauvais, on effectue le traitement
-    protected abstract void mauvaisChoix();
-
-    // Le choix du mot réponse est bon, on effectue le traitement
-    protected abstract void bonChoix();
 }
