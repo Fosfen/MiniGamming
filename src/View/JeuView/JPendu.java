@@ -1,37 +1,36 @@
-package View;
+package View.JeuView;
 
 import Controller.AbstractController;
 import Controller.PenduController;
 import Model.Pendu;
+import View.JStatic;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collection;
 
 /**
- * @author Duthoit Raphael, Delhalla Sebastien
+ * @author Duthoit Raphael, Delhalle Sebastien
  * Classe permettant de générer un pendu jouable.
  */
-
-public class JPendu extends JPanel
+public class JPendu extends JeuView
 {
     private Pendu pendu;
     private AbstractController penduController = new PenduController(pendu);
     private JMot lemotatrouver;
 
-
     /**
      * Constructeur JPendu
      */
-
     public JPendu()
     {
+        // TODO Seb : Retirer la version test et la remplacer par la version finale du MVC
         pendu = new Pendu();
         lemotatrouver = new JMot(pendu.getReponse().length);                          //On génère le mot à trouver
         setLayout(new BorderLayout());                                                //Layout du pendu
         setBackground(JStatic.BackgroundColor);                                       //On ajoute la couleur statique de fond
         add(lemotatrouver, BorderLayout.NORTH);                                       //On ajoute le mot au nord du pendu
+
         // TODO Seb : retirer en mode graphique
         JButton jouer = new JButton("JOUER A LA VERSION CONSOLE");               //On donne une possibilité de jeu console en bas dans un bouton
         jouer.addActionListener(arg0 -> lancerPartie());                              //Listener du bouton version console
@@ -41,10 +40,15 @@ public class JPendu extends JPanel
     /**
      * Méthode pour lancer la version console
      */
-
     public void lancerPartie()
     {
         this.pendu.lancerPartie();
+    }
+
+    @Override
+    public void update()
+    {
+        // TODO update la vue en fonction du modèle
     }
 }
 
@@ -52,7 +56,6 @@ public class JPendu extends JPanel
    /**
     * Classe JMot permettant la gestion du mot du pendu
     */
-
 class JMot extends JPanel {
 
     ArrayList<JLabel> leslettres;                                          //Liste qui va contenir les lettres du mot
@@ -73,7 +76,6 @@ class JMot extends JPanel {
     /**
      * Méthode permettant d'afficher le contenu de la liste à l'écran
      */
-
     public void afficher(ArrayList<JLabel> liste){
         for(int i=0 ; i<liste.size() ; i++){
             add(liste.get(i));
@@ -83,7 +85,6 @@ class JMot extends JPanel {
     /**
      * Méthode permettant d'ajouter un charactère à toutes les positions définies dans un tableau d'entier
      */
-
     public void addLettre(char lettre, int[] positions){
         for(int i=0 ; i<positions.length ; i++) {
             JLabel label = new JLabel(String.valueOf(lettre));

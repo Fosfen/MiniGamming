@@ -1,13 +1,11 @@
 package Controller;
 
-import Model.Mots;
+import Model.AbstractModel;
 
 public abstract class MotsController extends AbstractController
 {
-    public Mots model;
-
-    public MotsController()
+    public MotsController(AbstractModel model)
     {
-
+        super(model);
     }
 }

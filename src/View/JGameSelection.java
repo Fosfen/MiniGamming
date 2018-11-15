@@ -1,5 +1,7 @@
 package View;
 
+import View.JeuView.JPendu;
+
 import javax.swing.*;
 import java.awt.*;
 

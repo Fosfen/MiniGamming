@@ -1,18 +1,28 @@
 package Model;
 
-import Observer.Observer;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Pendu extends Mots
 {
     private ArrayList<Character> lettresChoisies;
+    private char[] progressionUser;
 
     public Pendu ()
     {
         super();
         this.lettresChoisies = new ArrayList<>();
+
+        this.progressionUser = new char[this.reponse.length];
+        this.initPregress();
+    }
+
+    private void initPregress()
+    {
+        for (int i = 0; i < this.reponse.length; i++)
+        {
+            this.progressionUser[i] = '_';
+        }
     }
 
     protected void jouerTour()
@@ -50,6 +60,7 @@ public class Pendu extends Mots
             this.bonneLettre(lettre);
         }
 
+        // TODO Seb : Modifier la variable progressionUser lorqu'une lettre est choisie
         // On ajoute la lettre aux lettres choisies et on vérifie si la partie est terminée
         this.lettresChoisies.add(lettre);
         this.nbEssais ++;
@@ -81,5 +92,10 @@ public class Pendu extends Mots
         {
             this.finPartie();
         }
+    }
+
+    public char[] getProgressionUser()
+    {
+        return this.progressionUser;
     }
 }
