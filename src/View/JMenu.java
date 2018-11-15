@@ -6,7 +6,7 @@ import Controller.PenduController;
 import javax.swing.*;
 import java.awt.*;
 
-/*
+/**
  * @author Duthoit Raphael
  * Panel du Menu principal composé de deux sous panels
  */

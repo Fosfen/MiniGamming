@@ -3,7 +3,7 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 
-/*
+/**
  * @author Duthoit Raphael
  * Navbar s'affichant systématiquement en haut du LayoutMenu
  */
@@ -32,7 +32,6 @@ public class JNavbarMenu extends JPanel {
 
             help = new JHelpButton();
             add(help, BorderLayout.EAST);
-
             help.addActionListener(arg0 -> new JHelpFrame());
 
         }

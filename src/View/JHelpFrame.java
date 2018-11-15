@@ -2,6 +2,10 @@ package View;
 
 import javax.swing.*;
 
+/**
+ *  Frame d'aide pour l'utilisateur.
+ */
+
 public class JHelpFrame extends JFrame {
     private JPanel content;
 

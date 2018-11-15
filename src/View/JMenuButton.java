@@ -7,9 +7,9 @@ import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 
-/*
+/**
  *  @author : Duthoit Raphaël
- *  Dev : classe permettant de définir un bouton personnalisé (remplaçant le JButton)
+ *  Classe permettant de définir un bouton personnalisé (remplaçant le JButton)
  */
 
 

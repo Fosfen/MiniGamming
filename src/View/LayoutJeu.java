@@ -1,22 +1,24 @@
 package View;
 
-import resCode.JSidebarJeu;
-
 import javax.swing.*;
 import java.awt.*;
 
 public class LayoutJeu extends JFrame {
 
 
-
-    public LayoutJeu(JPanel panel, String Titre){
+    public LayoutJeu() {
 
         setVisible(true);
         setExtendedState(MAXIMIZED_BOTH);
+        setResizable(false);
         this.setLayout(new BorderLayout());
-        add(new JNavbarJeu(this),BorderLayout.NORTH);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        add(new JNavbarJeu(this), BorderLayout.NORTH);
         add(new JSidebarJeu(), BorderLayout.EAST);
-        add(panel, BorderLayout.CENTER);
-        setTitle(JStatic.StaticTitre + Titre);
     }
+
+    public void setPanel(JPanel panel) {
+        add(panel, BorderLayout.CENTER);
+    }
+
 }

@@ -19,7 +19,7 @@ public class Pendu extends Mots
     {
         // TODO Julien
         // TODO intégrer la fonctionnalité > passer du mode console au mode graphique
-        System.out.println("Choisit une lettre bro");
+        System.out.println("Choisissez une lettre : ");
         Scanner sc = new Scanner(System.in);
         this.choisirLettre(sc.next().charAt(0));
     }

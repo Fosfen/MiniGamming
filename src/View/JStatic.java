@@ -2,7 +2,8 @@ package View;
 
 import java.awt.*;
 
-/*
+/**
+ * @author Duthoit Raphael
  *  Cette classe va permettre de définir toutes les variables statiques nécessaires au projet.
  */
 public class JStatic {

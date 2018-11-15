@@ -3,9 +3,9 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 
-/*
+/**
  * @author Duthoit Raphael
- * Navbar s'affichant systématiquement en haut du LayoutMenu
+ * Navbar s'affichant systématiquement en haut du LayoutJeu
  */
 
 public class JNavbarJeu extends JPanel {
@@ -19,8 +19,13 @@ public class JNavbarJeu extends JPanel {
             setLayout(new BorderLayout());
             this.layoutJeu = L;
             Font f = new Font("Andika basic", Font.BOLD,30);
-            JLabel contenu = new JLabel("contenu de la navbar jeu");
-            contenu.setFont(f);
-            add(contenu);
+            JButton backbutton = new JButton("Retour au menu des jeux");
+            backbutton.addActionListener(arg0 -> Return());
+            add(backbutton);
+        }
+
+        public void Return(){
+          layoutJeu.setPanel(new JPanel());
+          layoutJeu.setVisible(false);
         }
 }

@@ -1,4 +1,4 @@
-package resCode;
+package View;
 
 import View.JStatic;
 

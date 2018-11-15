@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-/*
+/**
  * @author Duthoit Raphaël
  * Classe permettant de créer un button d'aide
  */

@@ -9,16 +9,16 @@ public class JGameSelection extends JPanel
     private JLabel titleSudoku;
     private JLabel titlePendu;
     private JLabel titleMotus;
+    LayoutJeu layout = new LayoutJeu();                                         //On créé une seule instance de LayoutJeu
 
     // JButtons
     private JPlayButton buttonPendu;
 
     public JGameSelection()
     {
-/*
-        setLayout(new GridLayout(3,3));
-        setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
-*/      setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+
+        layout.setVisible(false);                                               //On cache le LayoutJeu tant que nous somme dans le menu
+        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         setBackground(JStatic.BackgroundColor);
         Font f = new Font("Andika basic", Font.BOLD,70);
 
@@ -45,7 +45,6 @@ public class JGameSelection extends JPanel
     {
         this.add(titlePendu);
         this.add(buttonPendu);
-
         this.add(titleSudoku);
         this.add(titleMotus);
     }
@@ -53,7 +52,8 @@ public class JGameSelection extends JPanel
     private void afficherPendu()
     {
         JPendu jpendu = new JPendu();
-        // TODO Raph : attention à ne pas créer un layout jeu pour chaque jeu, normalement il doit être créé avant et on charge un jeu dedans (1 seule création de LayoutJeu)
-        LayoutJeu layout = new LayoutJeu(jpendu,"Le Pendu");
+        layout.setPanel(jpendu);
+        layout.setTitle(JStatic.StaticTitre + "Le Pendu");
+        layout.setVisible(true);
     }
 }
