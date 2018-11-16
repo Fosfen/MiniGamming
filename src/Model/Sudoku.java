@@ -86,7 +86,7 @@ public class Sudoku extends AbstractSudoku{
     }
 
     @Override
-    protected void jouerTour() {
+    protected void jouerTour() { // permet de jouer tour dans le terminal
         Scanner sc = new Scanner(System.in);
         System.out.print("Valeur : ");
         String val = sc.nextLine();
