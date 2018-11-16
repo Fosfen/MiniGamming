@@ -94,6 +94,15 @@ public class Pendu extends Mots
         }
     }
 
+    private void UpdateProgression(char lettre){
+        for ( int i = 0 ; i < reponse.length ; i++){
+            if(lettre == reponse[i]){                   // si égalité
+                progressionUser[i]=lettre;
+            }
+        }
+    }
+
+
     public char[] getProgressionUser()
     {
         return this.progressionUser;
