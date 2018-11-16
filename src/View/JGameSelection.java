@@ -86,7 +86,8 @@ public class JGameSelection extends JPanel
 
     public void lancerPendu()
     {
-        layout.setPanel(new JPendu(new PenduController(new Pendu())));
+        PenduController controller = new PenduController(new Pendu());
+        layout.setPanel(controller.getPanel());
         layout.setTitle(JStatic.StaticTitre + "Le pendu");
         layout.setVisible(true);
     }
