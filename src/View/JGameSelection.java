@@ -11,35 +11,58 @@ public class JGameSelection extends JPanel
     private JLabel titleSudoku;
     private JLabel titlePendu;
     private JLabel titleMotus;
+    private JLabel titleSudokuLettres;
+    private JLabel titleMotsMeles;
     LayoutJeu layout = new LayoutJeu();                                         //On créé une seule instance de LayoutJeu
 
     // JButtons
+    private JPlayButton buttonSudoku;
     private JPlayButton buttonPendu;
+    private JPlayButton buttonMotus;
+    private JPlayButton buttonSudokuLettres;
+    private JPlayButton buttonMotsMeles;
 
     public JGameSelection()
     {
 
         layout.setVisible(false);                                               //On cache le LayoutJeu tant que nous somme dans le menu
-        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        setLayout(new GridLayout(5,1));
         setBackground(JStatic.BackgroundColor);
         Font f = new Font("Andika basic", Font.BOLD,70);
 
         // Pendu
+
         titlePendu = new JLabel("Pendu");
         titlePendu.setFont(f);
         buttonPendu = new JPlayButton();
 
         // Sudoku
+
         titleSudoku = new JLabel("Sudoku");
         titleSudoku.setFont(f);
+        buttonSudoku = new JPlayButton();
 
         // Motus
+
         titleMotus = new JLabel("Motus");
         titleMotus.setFont(f);
+        buttonMotus = new JPlayButton();
+
+        //SudokuLettres
+
+        titleSudokuLettres = new JLabel("SudokuLettres");
+        titleSudokuLettres.setFont(f);
+        buttonSudokuLettres = new JPlayButton();
+
+        //Mots mélés
+
+        titleMotsMeles = new JLabel("Mots mélés");
+        titleMotsMeles.setFont(f);
+        buttonMotsMeles = new JPlayButton();
 
         this.addComponents();
 
-        // TODO Raph : Séparer le lancement des jeux dans différentes méthodes (on redirige l'action listener vers une méthode spécifique au jeu, je l'ai fait pour le pendu)
+        //Listeners Buttons
         buttonPendu.addActionListener(arg0 -> afficherPendu());
     }
 
@@ -48,7 +71,14 @@ public class JGameSelection extends JPanel
         this.add(titlePendu);
         this.add(buttonPendu);
         this.add(titleSudoku);
+        this.add(buttonSudoku);
+        this.add(titleSudokuLettres);
+        this.add(buttonSudokuLettres);
         this.add(titleMotus);
+        this.add(buttonMotus);
+        this.add(titleMotsMeles);
+        this.add(buttonMotsMeles);
+
     }
 
     private void afficherPendu()
