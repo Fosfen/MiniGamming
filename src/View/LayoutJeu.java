@@ -14,11 +14,10 @@ public class LayoutJeu extends JFrame {
         this.setLayout(new BorderLayout());
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         add(new JNavbarJeu(this), BorderLayout.NORTH);
-        add(new JSidebarJeu(), BorderLayout.EAST);
+        add(new JPenduSidebar(this), BorderLayout.EAST);
     }
 
     public void setPanel(JPanel panel) {
         add(panel, BorderLayout.CENTER);
     }
-
 }
