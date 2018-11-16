@@ -22,4 +22,9 @@ public abstract class AbstractController
     {
         return this.model;
     }
+
+    public JeuView getPanel()
+    {
+        return  this.jeuView;
+    }
 }
