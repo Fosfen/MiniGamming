@@ -1,13 +1,12 @@
 package View.JeuView;
 
-import Controller.AbstractController;
 import Controller.PenduController;
+import Model.AbstractModel;
 import Model.Pendu;
 import View.JStatic;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 /**
  * @author Duthoit Raphael, Delhalle Sebastien
@@ -15,18 +14,19 @@ import java.util.ArrayList;
  */
 public class JPendu extends JeuView
 {
-    private Pendu pendu;
-    private AbstractController penduController = new PenduController(pendu);
     private JLabel lemotatrouver;
 
     /**
      * Constructeur JPendu
      */
-    public JPendu()
+    public JPendu(PenduController penduController)
     {
-        // TODO Seb : Retirer la version test et la remplacer par la version finale du MVC
+        super(penduController);
+        AbstractModel pendu = this.controller.getModel();
+        /*
         pendu = new Pendu();
-        lemotatrouver = new JLabel(String.valueOf(pendu.getProgressionUser()));                          //On génère le mot à trouver
+        this.penduController = penduController;*/
+        lemotatrouver = new JLabel(String.valueOf(((Pendu) pendu).getProgressionUser()));                          //On génère le mot à trouver
         setLayout(new BorderLayout());                                                //Layout du pendu
         setBackground(JStatic.BackgroundColor);                                       //On ajoute la couleur statique de fond
         add(lemotatrouver, BorderLayout.NORTH);                                       //On ajoute le mot au nord du pendu
@@ -42,7 +42,7 @@ public class JPendu extends JeuView
      */
     public void lancerPartie()
     {
-        this.pendu.lancerPartie();
+        //this.pendu.lancerPartie();
     }
 
     @Override

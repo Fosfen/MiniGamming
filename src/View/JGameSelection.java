@@ -1,5 +1,7 @@
 package View;
 
+import Controller.PenduController;
+import Model.Pendu;
 import View.JeuView.JPendu;
 
 import javax.swing.*;
@@ -22,13 +24,12 @@ public class JGameSelection extends JPanel
     private JPlayButton buttonSudokuLettres;
     private JPlayButton buttonMotsMeles;
 
-    public JGameSelection()
-    {
+    public JGameSelection() {
 
         layout.setVisible(false);                                               //On cache le LayoutJeu tant que nous somme dans le menu
-        setLayout(new GridLayout(5,1));
+        setLayout(new GridLayout(5, 1));
         setBackground(JStatic.BackgroundColor);
-        Font f = new Font("Andika basic", Font.BOLD,70);
+        Font f = new Font("Andika basic", Font.BOLD, 70);
 
         // Pendu
 
@@ -62,8 +63,10 @@ public class JGameSelection extends JPanel
 
         this.addComponents();
 
+
         //Listeners Buttons
-        buttonPendu.addActionListener(arg0 -> afficherPendu());
+        buttonPendu.addActionListener(arg0 -> lancerPendu());
+
     }
 
     private void addComponents()
@@ -81,11 +84,11 @@ public class JGameSelection extends JPanel
 
     }
 
-    private void afficherPendu()
+    public void lancerPendu()
     {
-        JPendu jpendu = new JPendu();
-        layout.setPanel(jpendu);
-        layout.setTitle(JStatic.StaticTitre + "Le Pendu");
+        layout.setPanel(new JPendu(new PenduController(new Pendu())));
+        layout.setTitle(JStatic.StaticTitre + "Le pendu");
         layout.setVisible(true);
     }
+
 }
