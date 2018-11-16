@@ -1,8 +1,4 @@
-import Model.*;
-import Controller.*;
 import View.*;
-
-import java.util.ArrayList;
 
 public class Main
 {

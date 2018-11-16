@@ -1,7 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+import Observer.Observer;
 
 public class Pendu extends Mots
 {
@@ -27,15 +27,11 @@ public class Pendu extends Mots
 
     protected void jouerTour()
     {
-        // TODO Julien
-        // TODO intégrer la fonctionnalité > passer du mode console au mode graphique
-        System.out.println("Choisissez une lettre : ");
-        Scanner sc = new Scanner(System.in);
-        this.choisirLettre(sc.next().charAt(0));
+
     }
 
     // L'utilisateur choisi une lettre
-    private void choisirLettre(char lettre)
+    public void choisirLettre(char lettre)
     {
         // On vérifie si la lettre est présente dans le mot réponse
         char lettreTemp = '\\';
@@ -60,7 +56,7 @@ public class Pendu extends Mots
             this.bonneLettre(lettre);
         }
 
-        // TODO Seb : Modifier la variable progressionUser lorqu'une lettre est choisie
+        this.updateProgression(Character.toUpperCase(lettre));
         // On ajoute la lettre aux lettres choisies et on vérifie si la partie est terminée
         this.lettresChoisies.add(lettre);
         this.nbEssais ++;
@@ -94,17 +90,31 @@ public class Pendu extends Mots
         }
     }
 
-    private void UpdateProgression(char lettre){
-        for ( int i = 0 ; i < reponse.length ; i++){
-            if(lettre == reponse[i]){                   // si égalité
-                progressionUser[i]=lettre;
+    private void updateProgression(char lettre){
+        for ( int i = 0 ; i < reponse.length ; i++)
+        {
+            if(lettre == reponse[i])
+            {
+                this.progressionUser[i]=lettre;
             }
         }
     }
 
-
     public char[] getProgressionUser()
     {
         return this.progressionUser;
+    }
+
+    public void notifyObserver()
+    {
+
+    }
+
+    public void notify(String progress)
+    {
+        for (Observer obs : this.observers)
+        {
+
+        }
     }
 }

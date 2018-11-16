@@ -14,6 +14,6 @@ public class PenduController extends MotsController
 
     public void lettreChoisie(char lettre)
     {
-
+        ((Pendu) this.model).choisirLettre(lettre);
     }
 }

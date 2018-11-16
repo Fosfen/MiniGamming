@@ -16,6 +16,11 @@ public class Motus extends Mots
 
     }
 
+    @Override
+    public void notifyObserver() {
+
+    }
+
     protected void jouerTour()
     {
         // TODO Julien
