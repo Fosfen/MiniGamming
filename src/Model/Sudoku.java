@@ -61,7 +61,7 @@ public class Sudoku extends AbstractSudoku{
 
         // Prend une grille aléatoirement dans la BDD.
 
-        BufferedReader br = new BufferedReader(new FileReader("src/Model/sudokuBDD.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("src/resCode/sudokuBDD.txt"));
         String line = br.readLine();
         int count = 0;
         while ((line = br.readLine()) != null  && count<numSudoku) {
