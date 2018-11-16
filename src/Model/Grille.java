@@ -1,18 +1,35 @@
 package Model;
 
+import java.io.IOException;
+
 public abstract class Grille<T> extends AbstractModel
 {
-    int tailleX; // largeur de la grille
-    int tailleY; // hauteur de la grille
+    protected int tailleX; // largeur de la grille
+    protected int tailleY; // hauteur de la grille
 
-    T[][] grille; // La grille est un tableau d'élément générique
+    protected T[][] grille; // La grille est un tableau d'élément générique
+
+    protected boolean[][] movePossible; //historique des coups jouer.
 
     public Grille(int tailleX, int tailleY) { // Constructeur
         this.tailleX = tailleX;
         this.tailleY = tailleY;
     }
 
-    public void Remplir(T[][] grille){ // Initialise la grille
+    protected abstract void initialisation() throws IOException; // Initialise la grille
+
+    protected T[][] getGrille() {
+        return grille;
     }
 
+    protected void affichageMovePossible(){
+        for(int i=0;i<movePossible.length;i++) {
+            for (int j = 0; j < movePossible.length; j++) {
+                System.out.print(movePossible[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+    protected abstract void remplirMovePossible();
 }
