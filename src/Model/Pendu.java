@@ -14,10 +14,10 @@ public class Pendu extends Mots
         this.lettresChoisies = new ArrayList<>();
 
         this.progressionUser = new char[this.reponse.length];
-        this.initPregress();
+        this.initProgress();
     }
 
-    private void initPregress()
+    private void initProgress()
     {
         for (int i = 0; i < this.reponse.length; i++)
         {
