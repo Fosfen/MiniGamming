@@ -107,4 +107,9 @@ public class Sudoku extends AbstractSudoku{
     protected void finPartie() {
 
     }
+
+    @Override
+    public void notifyObserver() {
+
+    }
 }
