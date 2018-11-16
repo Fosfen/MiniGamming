@@ -8,8 +8,7 @@ public class PenduController extends MotsController
     public PenduController(Pendu pendu)
     {
         super(pendu);
-
-        this.jeuView = new JPendu();
+        this.jeuView = new JPendu(this);
         this.addObserver();
     }
 

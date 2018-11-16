@@ -1,5 +1,7 @@
 package View;
 
+import Controller.PenduController;
+import Model.Pendu;
 import View.JeuView.JPendu;
 
 import javax.swing.*;
@@ -11,7 +13,7 @@ public class JGameSelection extends JPanel
     private JLabel titleSudoku;
     private JLabel titlePendu;
     private JLabel titleMotus;
-    LayoutJeu layout = new LayoutJeu();                                         //On créé une seule instance de LayoutJeu
+    LayoutJeu layout = new LayoutJeu();                                           //On créé une seule instance de LayoutJeu
 
     // JButtons
     private JPlayButton buttonPendu;
@@ -40,7 +42,7 @@ public class JGameSelection extends JPanel
         this.addComponents();
 
         // TODO Raph : Séparer le lancement des jeux dans différentes méthodes (on redirige l'action listener vers une méthode spécifique au jeu, je l'ai fait pour le pendu)
-        buttonPendu.addActionListener(arg0 -> afficherPendu());
+        buttonPendu.addActionListener(arg0 -> lancerPendu());
     }
 
     private void addComponents()
@@ -51,11 +53,10 @@ public class JGameSelection extends JPanel
         this.add(titleMotus);
     }
 
-    private void afficherPendu()
+    public void lancerPendu()
     {
-        JPendu jpendu = new JPendu();
-        layout.setPanel(jpendu);
-        layout.setTitle(JStatic.StaticTitre + "Le Pendu");
+        layout.setPanel(new JPendu(new PenduController(new Pendu())));
+        layout.setTitle(JStatic.StaticTitre + "Le pendu");
         layout.setVisible(true);
     }
 }

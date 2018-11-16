@@ -17,4 +17,9 @@ public abstract class AbstractController
     {
         this.model.addObserver(this.jeuView);
     }
+
+    public AbstractModel getModel()
+    {
+        return this.model;
+    }
 }
