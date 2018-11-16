@@ -15,6 +15,7 @@ import java.awt.*;
 public class JPendu extends JeuView
 {
     private JPanel motPanel;
+    AbstractModel pendu;
 
     /**
      * Constructeur JPendu
@@ -23,13 +24,14 @@ public class JPendu extends JeuView
     {
         super(penduController);
 
+        pendu = this.controller.getModel();
+
         setLayout(new BorderLayout());                                                //Layout du pendu
         setBackground(JStatic.BackgroundColor);                                       //On ajoute la couleur statique de fond
 
         motPanel = new JPanel();
         motPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
-        AbstractModel pendu = this.controller.getModel();
         this.afficher(String.valueOf(((Pendu) pendu).getProgressionUser()), (Pendu) pendu);
 
         System.out.println(String.valueOf(((Pendu)pendu).getReponse()));
@@ -68,7 +70,10 @@ public class JPendu extends JeuView
 
     public void update(String field)
     {
-
+        this.motPanel = new JPanel();
+        motPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        this.afficher(field, (Pendu) pendu);
+        add(motPanel, BorderLayout.NORTH);
     }
 }
 
