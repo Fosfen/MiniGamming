@@ -17,7 +17,7 @@ public class JPendu extends JeuView
 {
     private Pendu pendu;
     private AbstractController penduController = new PenduController(pendu);
-    private JMot lemotatrouver;
+    private JLabel lemotatrouver;
 
     /**
      * Constructeur JPendu
@@ -26,7 +26,7 @@ public class JPendu extends JeuView
     {
         // TODO Seb : Retirer la version test et la remplacer par la version finale du MVC
         pendu = new Pendu();
-        lemotatrouver = new JMot(pendu.getReponse().length);                          //On génère le mot à trouver
+        lemotatrouver = new JLabel(String.valueOf(pendu.getProgressionUser()));                          //On génère le mot à trouver
         setLayout(new BorderLayout());                                                //Layout du pendu
         setBackground(JStatic.BackgroundColor);                                       //On ajoute la couleur statique de fond
         add(lemotatrouver, BorderLayout.NORTH);                                       //On ajoute le mot au nord du pendu
@@ -56,6 +56,7 @@ public class JPendu extends JeuView
    /**
     * Classe JMot permettant la gestion du mot du pendu
     */
+   /*
 class JMot extends JPanel {
 
     ArrayList<JLabel> leslettres;                                          //Liste qui va contenir les lettres du mot
@@ -72,19 +73,21 @@ class JMot extends JPanel {
         this.afficher(this.leslettres);                                                        //Appel à la méthode d'affichage
         addLettre('C',new int[]{0,2,4});                                                //Test d'ajout de 3 lettres
     }
-
+*/
     /**
      * Méthode permettant d'afficher le contenu de la liste à l'écran
      */
+    /*
     public void afficher(ArrayList<JLabel> liste){
         for(int i=0 ; i<liste.size() ; i++){
             add(liste.get(i));
         }
     }
-
+*/
     /**
      * Méthode permettant d'ajouter un charactère à toutes les positions définies dans un tableau d'entier
      */
+    /*
     public void addLettre(char lettre, int[] positions){
         for(int i=0 ; i<positions.length ; i++) {
             JLabel label = new JLabel(String.valueOf(lettre));
@@ -93,4 +96,4 @@ class JMot extends JPanel {
             this.afficher(leslettres);                                                           //on réaffiche
         }
     }
-}
+}*/
