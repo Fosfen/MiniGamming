@@ -91,5 +91,4 @@ public class JGameSelection extends JPanel
         layout.setTitle(JStatic.StaticTitre + "Le pendu");
         layout.setVisible(true);
     }
-
 }
