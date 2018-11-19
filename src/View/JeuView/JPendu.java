@@ -49,7 +49,6 @@ public class JPendu extends JeuView
         JPanel panelImgCentered = new JPanel();
         panelImgCentered.setLayout(new FlowLayout(FlowLayout.CENTER));
         panelImgCentered.setBackground(JStatic.BackgroundColor);
-
         panelImgCentered.add(imgdebut);
         add(panelImgCentered, BorderLayout.CENTER);
 
@@ -64,10 +63,6 @@ public class JPendu extends JeuView
         }
 
         return label;
-    }
-
-    public JIcone getImgdebut() {
-        return imgdebut;
     }
 
     public void update(String field)

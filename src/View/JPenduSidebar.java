@@ -107,4 +107,5 @@ public class JPenduSidebar extends JPanel
         controller.lettreChoisie(lettre);
         buttonSource.setEnabled(false);
     }
+
 }
