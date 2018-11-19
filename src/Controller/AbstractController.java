@@ -8,6 +8,9 @@ public abstract class AbstractController
     protected AbstractModel model;
     protected JeuView jeuView;
 
+    // TODO
+    // public abstract void finPartie()
+
     public AbstractController(AbstractModel model)
     {
         this.model = model;

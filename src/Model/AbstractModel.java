@@ -12,10 +12,6 @@ public abstract class AbstractModel implements Observable
     protected boolean partieGagnee; // true si la partie est gagnée
 
     // Méthodes générales à tous les jeux
-    public void lancerPartie()
-    {
-        this.jouerTour();
-    }
     protected abstract void jouerTour();
     protected abstract void verifierFinPartie();
 
