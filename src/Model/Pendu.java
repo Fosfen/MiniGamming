@@ -57,6 +57,7 @@ public class Pendu extends Mots
         }
 
         this.updateProgression(Character.toUpperCase(lettre));
+        this.notify(String.valueOf(this.progressionUser));
         // On ajoute la lettre aux lettres choisies et on vérifie si la partie est terminée
         this.lettresChoisies.add(lettre);
         this.nbEssais ++;
@@ -114,7 +115,7 @@ public class Pendu extends Mots
     {
         for (Observer obs : this.observers)
         {
-
+            obs.update(progress);
         }
     }
 }

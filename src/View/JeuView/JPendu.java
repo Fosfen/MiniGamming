@@ -14,7 +14,8 @@ import java.awt.*;
  */
 public class JPendu extends JeuView
 {
-    private JPanel motPanel;
+    private JLabel progress;
+    AbstractModel pendu;
 
     /**
      * Constructeur JPendu
@@ -23,51 +24,42 @@ public class JPendu extends JeuView
     {
         super(penduController);
 
+        JPanel centeredWord = new JPanel();
+        centeredWord.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+
+        pendu = this.controller.getModel();
+        progress = new JLabel(this.makeLabel(((Pendu) pendu).getProgressionUser()));
+        progress.setHorizontalTextPosition(SwingConstants.CENTER);
+        Font f = new Font("Andika basic", Font.BOLD, 70);
+        progress.setFont(f);
+
+        //ajout du mot centré au panel
+        centeredWord.add(progress);
+        centeredWord.setBackground(JStatic.CouleurMotATrouver);
+
         setLayout(new BorderLayout());                                                //Layout du pendu
         setBackground(JStatic.BackgroundColor);                                       //On ajoute la couleur statique de fond
 
-        motPanel = new JPanel();
-        motPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-
-        AbstractModel pendu = this.controller.getModel();
-        this.afficher(String.valueOf(((Pendu) pendu).getProgressionUser()), (Pendu) pendu);
-
         System.out.println(String.valueOf(((Pendu)pendu).getReponse()));
-        add(motPanel, BorderLayout.NORTH);
+        add(centeredWord, BorderLayout.NORTH);
 
-        // TODO Seb : retirer en mode graphique
-        JButton jouer = new JButton("JOUER A LA VERSION CONSOLE");               //On donne une possibilité de jeu console en bas dans un bouton
-        jouer.addActionListener(arg0 -> lancerPartie());                              //Listener du bouton version console
-        add(jouer,BorderLayout.SOUTH);                                                //On ajoute le bouton au sud du pendu
     }
 
-    public void afficher(String mot, Pendu pendu)
+    private String makeLabel(char[] progress)
     {
-        //Création du mot.
-        Font f = new Font("Andika basic", Font.BOLD, 70);
-        for(int i=0 ; i< (pendu.getProgressionUser().length) ; i++){
-            JLabel lettre = new JLabel(String.valueOf((pendu).getProgressionUser()[i]));
-            lettre.setFont(f);
-            motPanel.add(lettre);
+        String label = "";
+        for (int i = 0; i < progress.length; i++)
+        {
+            label += String.valueOf(progress[i]) + ' ';
         }
+
+        return label;
     }
 
-    /**
-     * Méthode pour lancer la version console
-     */
-    public void lancerPartie()
-    {
-        //this.pendu.lancerPartie();
-    }
-
-    @Override
-    public void update()
-    {
-
-    }
 
     public void update(String field)
     {
-
+        this.progress.setText(this.makeLabel(((Pendu) pendu).getProgressionUser()));
     }
 }
