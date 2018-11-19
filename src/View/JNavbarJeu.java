@@ -15,13 +15,19 @@ public class JNavbarJeu extends JPanel {
 
 
     public JNavbarJeu(LayoutJeu L) {
+
             setBackground(JStatic.NavbarBackgroundColor);
             setLayout(new BorderLayout());
             this.layoutJeu = L;
             Font f = new Font("Andika basic", Font.BOLD,30);
+
             JButton backbutton = new JButton("Retour au menu des jeux");
             backbutton.addActionListener(arg0 -> Return());
-            add(backbutton);
+            add(backbutton, BorderLayout.WEST);
+
+            JLabel score = new JLabel("Score : ");
+            score.setFont(f);
+            add(score, BorderLayout.EAST);
         }
 
         public void Return(){

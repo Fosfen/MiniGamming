@@ -9,8 +9,8 @@ import java.awt.*;
 
 public class JHelpFrame extends JFrame {
     private JPanel content;
-    private JLabel HelpTextTitle;
-    private JLabel Text;
+    private JLabel helpTextTitle;
+    private JLabel text;
 
 
     public JHelpFrame() {
@@ -21,17 +21,16 @@ public class JHelpFrame extends JFrame {
         content = new JPanel();
         content.setLayout(new BorderLayout());
 
-        HelpTextTitle = new JLabel("Aide MiniGamming");
-        HelpTextTitle.setFont(f);
-        content.add(HelpTextTitle, BorderLayout.NORTH);
+        helpTextTitle = new JLabel("Aide MiniGamming");
+        helpTextTitle.setFont(f);
+        content.add(helpTextTitle, BorderLayout.NORTH);
 
-        Text = new JLabel("MiniGamming vous propose différents menus : Le menu Jouer, qui vous permettra d'avoir accès à une selection de 5 jeux (Pendu, Motus, Mots Mélés, Sudoku et Sudoku Lettres)");
-        content.add(Text, BorderLayout.CENTER);
+        text = new JLabel("MiniGamming vous propose différents menus : Le menu Jouer, qui vous permettra d'avoir accès à une selection de 5 jeux (Pendu, Motus, Mots Mélés, Sudoku et Sudoku Lettres)");
+        content.add(text, BorderLayout.CENTER);
         setContentPane(content);
-        setSize(700,500);
         content.setBackground(JStatic.HelpFrameBackgroundColor);
         setTitle(JStatic.StaticTitre + "Aide");
-
+        pack();
 
 
     }
