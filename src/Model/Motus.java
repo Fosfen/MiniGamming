@@ -13,18 +13,19 @@ public class Motus extends Mots
 
     protected void verifierFinPartie()
     {
-
+        if (nbEssais == 11)
+        {
+            this.partieTerminee = true;
+        }
     }
 
-    @Override
-    public void notifyObserver() {
+    public void notifyObserver()
+    {
 
     }
 
     protected void jouerTour()
     {
-        // TODO Julien
-        // TODO intégrer la fonctionnalité > passer du mode console au mode graphique
-        Scanner sc = new Scanner(System.in);
+
     }
 }

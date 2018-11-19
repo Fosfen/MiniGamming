@@ -4,8 +4,6 @@ import java.io.IOException;
 
 public abstract class AbstractSudoku<T> extends Grille
 {
-
-
     public AbstractSudoku(int taille) { // Constructeur
         super(taille, taille);
     }
@@ -60,7 +58,6 @@ public abstract class AbstractSudoku<T> extends Grille
             else {
                 System.out.println();
             }
-
         }
     }
 

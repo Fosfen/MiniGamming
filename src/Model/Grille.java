@@ -11,7 +11,11 @@ public abstract class Grille<T> extends AbstractModel
 
     protected boolean[][] movePossible; //historique des coups jouer.
 
-    public Grille(int tailleX, int tailleY) { // Constructeur
+    // Constructeur
+    public Grille(int tailleX, int tailleY)
+    {
+        super();
+
         this.tailleX = tailleX;
         this.tailleY = tailleY;
     }

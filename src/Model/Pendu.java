@@ -81,13 +81,13 @@ public class Pendu extends Mots
     // Un tour a été joué, on vérifie si la partie est terminée où si elle continue
     protected void verifierFinPartie()
     {
-        if (nbEssais < 3)
+        if (nbEssais == 11)
         {
-            jouerTour();
-        }
-        else
-        {
-            this.finPartie();
+            this.partieTerminee = true;
+            if (this.progressionUser == this.reponse)
+            {
+                this.partieGagnee = true;
+            }
         }
     }
 
