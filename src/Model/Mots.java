@@ -17,7 +17,7 @@ public abstract class Mots extends AbstractModel
     {
         // Constructeur de AbstractModel
         super();
-
+        
         this.choix = "";
         this.nbEssais = 1;
         this.reponse = genererMot(new File("src/resCode/dictionnaire.txt")).toCharArray(); // Géneration du mot à trouver à partir d'un fichier
@@ -56,23 +56,9 @@ public abstract class Mots extends AbstractModel
         }
         catch (FileNotFoundException exception)
         {
-            System.out.println("Le fichier n'a pas été trouvé...");
+            exception.printStackTrace();
         }
 
         return "";
-    }
-
-    // L'utilisateur fait un choix du mot à deviner
-    private void faireUnChoix (String choix)
-    {
-        this.choix = choix;
-        if (choix.toCharArray() == reponse)
-        {
-
-        }
-        else
-        {
-
-        }
     }
 }

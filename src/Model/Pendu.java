@@ -1,18 +1,15 @@
 package Model;
 
-import java.util.ArrayList;
 import Observer.Observer;
 
 public class Pendu extends Mots
 {
-    private ArrayList<Character> lettresChoisies;
     private char[] progressionUser;
     private String fileName;
 
     public Pendu ()
     {
         super();
-        this.lettresChoisies = new ArrayList<>();
 
         this.fileName = "res/penduProgress/Step1.png";
         this.progressionUser = new char[this.reponse.length];
@@ -61,7 +58,6 @@ public class Pendu extends Mots
         this.updateProgression(Character.toUpperCase(lettre));
         this.notify(String.valueOf(this.progressionUser));
         // On ajoute la lettre aux lettres choisies et on vérifie si la partie est terminée
-        this.lettresChoisies.add(lettre);
         this.verifierFinPartie();
     }
 
@@ -81,7 +77,7 @@ public class Pendu extends Mots
     // Un tour a été joué, on vérifie si la partie est terminée où si elle continue
     protected void verifierFinPartie()
     {
-        if (nbEssais == 11)
+        if (nbEssais == 8)
         {
             this.partieTerminee = true;
             if (this.progressionUser == this.reponse)
