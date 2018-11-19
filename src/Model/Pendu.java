@@ -1,17 +1,14 @@
 package Model;
 
-import java.util.ArrayList;
 import Observer.Observer;
 
 public class Pendu extends Mots
 {
-    private ArrayList<Character> lettresChoisies;
     private char[] progressionUser;
 
     public Pendu ()
     {
         super();
-        this.lettresChoisies = new ArrayList<>();
 
         this.progressionUser = new char[this.reponse.length];
         this.initProgress();
@@ -59,29 +56,25 @@ public class Pendu extends Mots
         this.updateProgression(Character.toUpperCase(lettre));
         this.notify(String.valueOf(this.progressionUser));
         // On ajoute la lettre aux lettres choisies et on vérifie si la partie est terminée
-        this.lettresChoisies.add(lettre);
-        this.nbEssais ++;
         this.verifierFinPartie();
     }
 
     // La lettre choisie est bonne, on effectue le traitement
     private void bonneLettre(char lettre)
     {
-        // TODO
-        System.out.println("Bonne lettre");
+
     }
 
     // La lettre choisie n'est pas bonne, on effectue le traitement
     private void mauvaiseLettre(char lettre)
     {
-        // TODO
-        System.out.println("Mauvaise lettre");
+        this.nbEssais ++;
     }
 
     // Un tour a été joué, on vérifie si la partie est terminée où si elle continue
     protected void verifierFinPartie()
     {
-        if (nbEssais == 11)
+        if (nbEssais == 8)
         {
             this.partieTerminee = true;
             if (this.progressionUser == this.reponse)
