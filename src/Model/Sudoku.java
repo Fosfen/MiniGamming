@@ -99,17 +99,14 @@ public class Sudoku extends AbstractSudoku{
     }
 
     @Override
-    protected void verifierFinPartie() {
+    protected void verifierFinPartie()
+    {
 
     }
 
     @Override
-    protected void finPartie() {
-
-    }
-
-    @Override
-    public void notifyObserver() {
+    public void notifyObserver()
+    {
 
     }
 }
