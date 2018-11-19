@@ -3,6 +3,7 @@ package View.JeuView;
 import Controller.PenduController;
 import Model.AbstractModel;
 import Model.Pendu;
+import View.JIcone;
 import View.JStatic;
 
 import javax.swing.*;
@@ -16,6 +17,7 @@ public class JPendu extends JeuView
 {
     private JLabel progress;
     AbstractModel pendu;
+    JIcone imgdebut = new JIcone("res/penduProgress/Step1.png");
 
     /**
      * Constructeur JPendu
@@ -44,6 +46,13 @@ public class JPendu extends JeuView
         System.out.println(String.valueOf(((Pendu)pendu).getReponse()));
         add(centeredWord, BorderLayout.NORTH);
 
+        JPanel panelImgCentered = new JPanel();
+        panelImgCentered.setLayout(new FlowLayout(FlowLayout.CENTER));
+        panelImgCentered.setBackground(JStatic.BackgroundColor);
+
+        panelImgCentered.add(imgdebut);
+        add(panelImgCentered, BorderLayout.CENTER);
+
     }
 
     private String makeLabel(char[] progress)
@@ -57,6 +66,9 @@ public class JPendu extends JeuView
         return label;
     }
 
+    public JIcone getImgdebut() {
+        return imgdebut;
+    }
 
     public void update(String field)
     {
