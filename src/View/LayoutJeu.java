@@ -3,22 +3,29 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 
-public class LayoutJeu extends JFrame {
+public class LayoutJeu extends JFrame
+{
+    JPanel panelJeu;
 
-
-    public LayoutJeu() {
-
+    public LayoutJeu()
+    {
         setVisible(true);
         setExtendedState(MAXIMIZED_BOTH);
         setResizable(false);
         this.setLayout(new BorderLayout());
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         add(new JNavbarJeu(this), BorderLayout.NORTH);
-        add(new JSidebarJeu(), BorderLayout.EAST);
+        add(new JPenduSidebar(this), BorderLayout.EAST);
     }
 
-    public void setPanel(JPanel panel) {
+    public void setPanel(JPanel panel)
+    {
         add(panel, BorderLayout.CENTER);
+        this.panelJeu = panel;
     }
 
+    public JPanel getPanelJeu()
+    {
+        return this.panelJeu;
+    }
 }

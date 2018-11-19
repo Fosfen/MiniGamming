@@ -14,5 +14,15 @@ public abstract class JeuView extends JPanel implements Observer
         this.controller = controller;
     }
 
+    public void update()
+    {
+
+    }
+
     public abstract void update(String field);
+
+    public AbstractController getController()
+    {
+        return this.controller;
+    }
 }
