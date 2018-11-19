@@ -19,7 +19,7 @@ public abstract class Mots extends AbstractModel
         super();
 
         this.choix = "";
-        this.nbEssais = 0;
+        this.nbEssais = 1;
         this.reponse = genererMot(new File("src/resCode/dictionnaire.txt")).toCharArray(); // Géneration du mot à trouver à partir d'un fichier
     }
 

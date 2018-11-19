@@ -17,7 +17,7 @@ public class JPendu extends JeuView
 {
     private JLabel progress;
     AbstractModel pendu;
-    JIcone imgdebut = new JIcone("res/penduProgress/Step1.png");
+    JIcone imgdebut;
 
     /**
      * Constructeur JPendu
@@ -43,13 +43,14 @@ public class JPendu extends JeuView
         setLayout(new BorderLayout());                                                //Layout du pendu
         setBackground(JStatic.BackgroundColor);                                       //On ajoute la couleur statique de fond
 
-        System.out.println(String.valueOf(((Pendu)pendu).getReponse()));
         add(centeredWord, BorderLayout.NORTH);
 
         JPanel panelImgCentered = new JPanel();
         panelImgCentered.setLayout(new FlowLayout(FlowLayout.CENTER));
         panelImgCentered.setBackground(JStatic.BackgroundColor);
 
+        imgdebut = new JIcone();
+        imgdebut.setIcon(((Pendu) pendu).getFileName());
         panelImgCentered.add(imgdebut);
         add(panelImgCentered, BorderLayout.CENTER);
 
@@ -73,5 +74,6 @@ public class JPendu extends JeuView
     public void update(String field)
     {
         this.progress.setText(this.makeLabel(((Pendu) pendu).getProgressionUser()));
+        imgdebut.setIcon(((Pendu) pendu).getFileName());
     }
 }

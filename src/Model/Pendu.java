@@ -7,12 +7,14 @@ public class Pendu extends Mots
 {
     private ArrayList<Character> lettresChoisies;
     private char[] progressionUser;
+    private String fileName;
 
     public Pendu ()
     {
         super();
         this.lettresChoisies = new ArrayList<>();
 
+        this.fileName = "res/penduProgress/Step1.png";
         this.progressionUser = new char[this.reponse.length];
         this.initProgress();
     }
@@ -60,22 +62,20 @@ public class Pendu extends Mots
         this.notify(String.valueOf(this.progressionUser));
         // On ajoute la lettre aux lettres choisies et on vérifie si la partie est terminée
         this.lettresChoisies.add(lettre);
-        this.nbEssais ++;
         this.verifierFinPartie();
     }
 
     // La lettre choisie est bonne, on effectue le traitement
     private void bonneLettre(char lettre)
     {
-        // TODO
-        System.out.println("Bonne lettre");
+
     }
 
     // La lettre choisie n'est pas bonne, on effectue le traitement
     private void mauvaiseLettre(char lettre)
     {
-        // TODO
-        System.out.println("Mauvaise lettre");
+        this.nbEssais ++;
+        this.fileName = "res/penduProgress/Step" + this.nbEssais + ".png";
     }
 
     // Un tour a été joué, on vérifie si la partie est terminée où si elle continue
@@ -117,5 +117,10 @@ public class Pendu extends Mots
         {
             obs.update(progress);
         }
+    }
+
+    public String getFileName()
+    {
+        return this.fileName;
     }
 }
