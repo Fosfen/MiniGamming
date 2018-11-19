@@ -1,7 +1,9 @@
 package View;
 
 import Controller.PenduController;
+import Controller.SudokuController;
 import Model.Pendu;
+import Model.Sudoku;
 import View.JeuView.JPendu;
 
 import javax.swing.*;
@@ -66,7 +68,7 @@ public class JGameSelection extends JPanel
 
         //Listeners Buttons
         buttonPendu.addActionListener(arg0 -> lancerPendu());
-
+        buttonSudoku.addActionListener(arg0 -> lancerSudoku());
     }
 
     private void addComponents()
@@ -81,7 +83,6 @@ public class JGameSelection extends JPanel
         this.add(buttonMotus);
         this.add(titleMotsMeles);
         this.add(buttonMotsMeles);
-
     }
 
     public void lancerPendu()
@@ -89,6 +90,14 @@ public class JGameSelection extends JPanel
         PenduController controller = new PenduController(new Pendu());
         layout.setPanel(controller.getPanel());
         layout.setTitle(JStatic.StaticTitre + "Le pendu");
+        layout.setVisible(true);
+    }
+
+    public void lancerSudoku()
+    {
+        SudokuController controller = new SudokuController(new Sudoku());
+        layout.setPanel(controller.getPanel());
+        layout.setTitle(JStatic.StaticTitre + "Le Sudoku");
         layout.setVisible(true);
     }
 }

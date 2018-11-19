@@ -1,10 +1,20 @@
 package View.JeuView;
 
 import Controller.AbstractController;
+import Controller.SudokuController;
+import Model.Sudoku;
 
-public class JSudoku extends JeuView {
-    public JSudoku(AbstractController controller) {
-        super(controller);
+import javax.swing.*;
+
+public class JSudoku extends JGrille {
+
+    public JSudoku(SudokuController controller) {
+        super(controller, 9, 9);
+
+        //TODO Remove
+        for(int i=0 ; i < 81 ; i++){
+            add(new JButton(String.valueOf(i)));
+        }
     }
 
     @Override
