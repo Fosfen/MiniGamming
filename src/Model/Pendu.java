@@ -111,7 +111,7 @@ public class Pendu extends Mots
     {
         for (Observer obs : this.observers)
         {
-            obs.update(progress);
+            // TODO
         }
     }
 

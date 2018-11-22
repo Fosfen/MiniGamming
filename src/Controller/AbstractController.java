@@ -1,12 +1,12 @@
 package Controller;
 
 import Model.AbstractModel;
-import View.JeuView.JeuView;
+import View.LayoutJeu.LayoutJeu;
 
 public abstract class AbstractController
 {
     protected AbstractModel model;
-    protected JeuView jeuView;
+    protected LayoutJeu jeuFront;
 
     // TODO
     // public abstract void finPartie()
@@ -18,16 +18,11 @@ public abstract class AbstractController
 
     protected void addObserver()
     {
-        this.model.addObserver(this.jeuView);
+        this.model.addObserver(this.jeuFront);
     }
 
     public AbstractModel getModel()
     {
         return this.model;
-    }
-
-    public JeuView getPanel()
-    {
-        return  this.jeuView;
     }
 }

@@ -1,21 +1,11 @@
 package View.JeuView;
 
-import Controller.AbstractController;
+import View.LayoutJeu.LayoutJeu;
 
-public class JMotus extends JeuView {
-
-    public JMotus(AbstractController controller) {
-        super(controller);
-    }
-
-    @Override
-    public void update()
+public class JMotus extends JeuView
+{
+    public JMotus(LayoutJeu layout)
     {
-
-    }
-
-    @Override
-    public void update(String field) {
-
+        super(layout);
     }
 }

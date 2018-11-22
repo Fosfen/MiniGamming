@@ -1,10 +1,7 @@
 package View;
 
 import Controller.PenduController;
-import Controller.SudokuController;
 import Model.Pendu;
-import Model.Sudoku;
-import View.JeuView.JPendu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +14,6 @@ public class JGameSelection extends JPanel
     private JLabel titleMotus;
     private JLabel titleSudokuLettres;
     private JLabel titleMotsMeles;
-    LayoutJeu layout = new LayoutJeu();                                         //On créé une seule instance de LayoutJeu
 
     // JButtons
     private JPlayButton buttonSudoku;
@@ -26,9 +22,8 @@ public class JGameSelection extends JPanel
     private JPlayButton buttonSudokuLettres;
     private JPlayButton buttonMotsMeles;
 
-    public JGameSelection() {
-
-        layout.setVisible(false);                                               //On cache le LayoutJeu tant que nous somme dans le menu
+    public JGameSelection()
+    {
         setLayout(new GridLayout(5, 1));
         setBackground(JStatic.BackgroundColor);
         Font f = new Font("Andika basic", Font.BOLD, 70);
@@ -87,17 +82,11 @@ public class JGameSelection extends JPanel
 
     public void lancerPendu()
     {
-        PenduController controller = new PenduController(new Pendu());
-        layout.setPanel(controller.getPanel());
-        layout.setTitle(JStatic.StaticTitre + "Le pendu");
-        layout.setVisible(true);
+        PenduController penduController = new PenduController(new Pendu());
     }
 
     public void lancerSudoku()
     {
-        SudokuController controller = new SudokuController(new Sudoku());
-        layout.setPanel(controller.getPanel());
-        layout.setTitle(JStatic.StaticTitre + "Le Sudoku");
-        layout.setVisible(true);
+        // TODO
     }
 }

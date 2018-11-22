@@ -1,20 +1,17 @@
-package View;
+package View.LayoutJeu.JSidebars;
 
 import Controller.PenduController;
-import Model.Pendu;
-import View.JeuView.JPendu;
-import View.JeuView.JeuView;
+import View.JStatic;
+import View.LayoutJeu.LayoutJeu;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class JPenduSidebar extends JPanel
+public class JPenduSidebar extends JSidebarJeu
 {
-    LayoutJeu layout;
-
     public JPenduSidebar (LayoutJeu layout)
     {
-        this.layout = layout;
+        super(layout);
 
         setLayout(new GridLayout(13,2));
         setBackground(JStatic.HelpFrameBackgroundColor);
@@ -102,9 +99,7 @@ public class JPenduSidebar extends JPanel
 
     public void ActionLettre(char lettre, JButton buttonSource)
     {
-        JPendu penduView = (JPendu) layout.getPanelJeu();
-        PenduController controller = (PenduController) penduView.getController();
-        controller.lettreChoisie(lettre);
+        ((PenduController) this.layout.getController()).lettreChoisie(lettre);
         buttonSource.setEnabled(false);
     }
 
