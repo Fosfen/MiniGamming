@@ -45,11 +45,6 @@ public class MotsMeles extends Grille
     }
 
     @Override
-    protected void remplirMovePossible() {
-
-    }
-
-    @Override
     protected void jouerTour() {
 
     }
@@ -57,11 +52,6 @@ public class MotsMeles extends Grille
     @Override
     protected void verifierFinPartie() {
 
-    }
-
-    @Override
-    protected void updateScore(int s) {
-        
     }
 
     @Override

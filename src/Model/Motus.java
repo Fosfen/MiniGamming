@@ -13,11 +13,12 @@ public class Motus extends Mots
     public static final String ANSI_WHITE = "\u001B[37m";
 
     private String[] movePossible;// OK pour une lettre bien placé, P pour une lettre mal placé, F pour une lettre complètement fausse.
+    protected char[] progressionUser;
 
-    public Motus ()
-    {
+    public Motus () {
         super();
-        movePossible=new String[reponse.length];
+        movePossible = new String[reponse.length];
+        this.progressionUser = new char[this.reponse.length];
     }
 
     protected void devoiler2Lettre(){
@@ -29,6 +30,18 @@ public class Motus extends Mots
             r.nextInt(reponse.length);
         }
         movePossible[rand2]="OK";
+
+        for (int i = 0; i < this.reponse.length; i++)
+        {
+            if (this.movePossible[i] == "OK")
+            {
+                this.progressionUser[i] = this.reponse[i];
+            }
+            else
+            {
+                this.progressionUser[i] = ' ';
+            }
+        }
     }
 
     protected boolean possede(char c){
