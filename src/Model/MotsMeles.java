@@ -23,6 +23,11 @@ public class MotsMeles extends Grille
     }
 
     @Override
+    protected void updateScore(int s) {
+        this.score += s;
+    }
+
+    @Override
     protected void initialisation() throws IOException
     {
         Random random = new Random();
