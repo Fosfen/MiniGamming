@@ -60,6 +60,11 @@ public class MotsMeles extends Grille
     }
 
     @Override
+    protected void updateScore(int s) {
+        
+    }
+
+    @Override
     public void notifyObserver() {
 
     }
