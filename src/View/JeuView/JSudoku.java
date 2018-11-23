@@ -12,7 +12,6 @@ public class JSudoku extends JGrille
 
         super(layout, 9, 9);
         this.model = s;
-
         //TODO Remove en graphique
         for(int i=0 ; i < 81 ; i++){
             add(new JButton(String.valueOf(i)));
