@@ -12,7 +12,6 @@ public class JPenduSidebar extends JSidebarJeu
     public JPenduSidebar (LayoutJeu layout)
     {
         super(layout);
-
         setLayout(new GridLayout(13,2));
         setBackground(JStatic.HelpFrameBackgroundColor);
 
