@@ -180,6 +180,14 @@ public class Motus extends Mots
         System.out.println();
     }
 
+    public char[] getProgressionUser() {
+        return progressionUser;
+    }
+
+    public String[] getMovePossible() {
+        return movePossible;
+    }
+
     @Override
     public void notifyObserver() {
 
