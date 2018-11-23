@@ -8,6 +8,7 @@ public abstract class Mots extends AbstractModel
     protected char[] reponse; // Mot à trouver
     protected String choix; // Le choix du joueur
     protected int nbEssais; // Nombre d'essais que le joueur à tenté
+    protected boolean progress=true;
 
     // target : valeur correspondant à la ligne du dictionnaire qui sera choisie
     private final int target = new Random().nextInt(369086)+1;
@@ -60,5 +61,19 @@ public abstract class Mots extends AbstractModel
         }
 
         return "";
+    }
+
+    // L'utilisateur fait un choix du mot à deviner
+    protected void faireUnChoix (String choix)
+    {
+        if(choix.length()==reponse.length){
+            this.choix = choix;
+        }
+    }
+
+    protected void finPartie()
+    {
+        // TODO
+        System.out.println("Le mot à trouver était : " + String.valueOf(this.reponse));
     }
 }
