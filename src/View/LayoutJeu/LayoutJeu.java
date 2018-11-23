@@ -22,6 +22,7 @@ public class LayoutJeu extends JFrame implements Observer
         this.navbar = new JNavbarJeu(this);
 
         this.setLayout(new BorderLayout());
+        add(navbar, BorderLayout.NORTH);
         setExtendedState(MAXIMIZED_BOTH);
         setResizable(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
