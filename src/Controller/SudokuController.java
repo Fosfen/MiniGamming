@@ -2,11 +2,14 @@ package Controller;
 
 import Model.Sudoku;
 import View.JeuView.JSudoku;
+import View.LayoutJeu.LayoutJeu;
 
-public class SudokuController extends GrilleController {
-    public SudokuController(Sudoku model) {
+public class SudokuController extends GrilleController
+{
+    public SudokuController(Sudoku model)
+    {
         super(model);
-        this.jeuView = new JSudoku(this);
+
         this.addObserver();
     }
 }

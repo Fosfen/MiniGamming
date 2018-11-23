@@ -1,7 +1,7 @@
-package View;
+package View.LayoutJeu.JSidebars;
 
-import Controller.PenduController;
-import View.JeuView.JPendu;
+import View.JStatic;
+import View.LayoutJeu.LayoutJeu;
 
 import javax.swing.*;
 import java.awt.*;

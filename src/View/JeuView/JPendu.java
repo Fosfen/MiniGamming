@@ -5,6 +5,7 @@ import Model.AbstractModel;
 import Model.Pendu;
 import View.JIcone;
 import View.JStatic;
+import View.LayoutJeu.LayoutJeu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,22 +17,20 @@ import java.awt.*;
 public class JPendu extends JeuView
 {
     private JLabel progress;
-    AbstractModel pendu;
     JIcone imgdebut;
 
     /**
      * Constructeur JPendu
      */
-    public JPendu(PenduController penduController)
+    public JPendu(LayoutJeu layout, Pendu pendu)
     {
-        super(penduController);
+        super(layout);
+        this.model = pendu;
 
         JPanel centeredWord = new JPanel();
         centeredWord.setLayout(new FlowLayout(FlowLayout.CENTER));
 
-
-        pendu = this.controller.getModel();
-        progress = new JLabel(this.makeLabel(((Pendu) pendu).getProgressionUser()));
+        progress = new JLabel(this.makeLabel(pendu.getProgressionUser()));
         progress.setHorizontalTextPosition(SwingConstants.CENTER);
         Font f = new Font("Andika basic", Font.BOLD, 70);
         progress.setFont(f);
@@ -49,7 +48,7 @@ public class JPendu extends JeuView
         panelImgCentered.setLayout(new FlowLayout(FlowLayout.CENTER));
         panelImgCentered.setBackground(JStatic.BackgroundColor);
         imgdebut = new JIcone();
-        imgdebut.setIcon(((Pendu) pendu).getFileName());
+        imgdebut.setIcon(pendu.getFileName());
         panelImgCentered.add(imgdebut);
         add(panelImgCentered, BorderLayout.CENTER);
 
@@ -64,11 +63,5 @@ public class JPendu extends JeuView
         }
 
         return label;
-    }
-
-    public void update(String field)
-    {
-        this.progress.setText(this.makeLabel(((Pendu) pendu).getProgressionUser()));
-        imgdebut.setIcon(((Pendu) pendu).getFileName());
     }
 }

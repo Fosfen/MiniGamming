@@ -2,13 +2,20 @@ package Controller;
 
 import Model.Pendu;
 import View.JeuView.JPendu;
+import View.LayoutJeu.JSidebars.JPenduSidebar;
+import View.LayoutJeu.LayoutJeu;
 
 public class PenduController extends MotsController
 {
     public PenduController(Pendu pendu)
     {
         super(pendu);
-        this.jeuView = new JPendu(this);
+
+        this.jeuFront = new LayoutJeu(this); // TODO pour les autres controllers
+        this.jeuFront.setSidebar(new JPenduSidebar(this.jeuFront)); // TODO pour les autres controllers
+        this.jeuFront.setPanelJeu(new JPendu(this.jeuFront, (Pendu) this.model)); // TODO pour les autres controllers
+        this.jeuFront.setVisible(); // TODO pour les autres controllers
+
         this.addObserver();
     }
 

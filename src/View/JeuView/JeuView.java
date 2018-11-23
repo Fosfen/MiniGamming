@@ -1,28 +1,17 @@
 package View.JeuView;
 
-import Controller.AbstractController;
-import Observer.Observer;
+import Model.AbstractModel;
+import View.LayoutJeu.LayoutJeu;
 
 import javax.swing.*;
 
-public abstract class JeuView extends JPanel implements Observer
+public abstract class JeuView extends JPanel
 {
-    protected AbstractController controller;
+    protected LayoutJeu layout;
+    protected AbstractModel model;
 
-    public JeuView(AbstractController controller)
+    public JeuView(LayoutJeu layout)
     {
-        this.controller = controller;
-    }
-
-    public void update()
-    {
-
-    }
-
-    public abstract void update(String field);
-
-    public AbstractController getController()
-    {
-        return this.controller;
+        this.layout = layout;
     }
 }
