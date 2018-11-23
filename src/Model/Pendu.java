@@ -16,6 +16,11 @@ public class Pendu extends Mots
         this.initProgress();
     }
 
+    @Override
+    protected void updateScore(int s) {
+       this.score += s;
+    }
+
     private void initProgress()
     {
         for (int i = 0; i < this.reponse.length; i++)
@@ -64,7 +69,7 @@ public class Pendu extends Mots
     // La lettre choisie est bonne, on effectue le traitement
     private void bonneLettre(char lettre)
     {
-
+        updateScore(100);
     }
 
     // La lettre choisie n'est pas bonne, on effectue le traitement
@@ -72,6 +77,7 @@ public class Pendu extends Mots
     {
         this.nbEssais ++;
         this.fileName = "res/penduProgress/Step" + this.nbEssais + ".png";
+        this.updateScore(-25);
     }
 
     // Un tour a été joué, on vérifie si la partie est terminée où si elle continue
