@@ -11,7 +11,7 @@ public class JSudoku extends JGrille {
     public JSudoku(SudokuController controller) {
         super(controller, 9, 9);
 
-        //TODO Remove
+        //TODO Remove en graphique
         for(int i=0 ; i < 81 ; i++){
             add(new JButton(String.valueOf(i)));
         }

@@ -10,6 +10,7 @@ public abstract class AbstractModel implements Observable
     // Attributs
     protected boolean partieTerminee; // true si la partie est terminée
     protected boolean partieGagnee; // true si la partie est gagnée
+    protected int score;
 
     // Méthodes générales à tous les jeux
     protected abstract void jouerTour();
@@ -19,7 +20,10 @@ public abstract class AbstractModel implements Observable
     {
         this.partieTerminee = false;
         this.partieGagnee = false;
+        this.score = 0;
     }
+
+    protected abstract void updateScore(int s);
 
     // Méthodes du pattern Observer
     protected ArrayList<Observer> observers = new ArrayList<>();
