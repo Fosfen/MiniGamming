@@ -6,14 +6,14 @@ import View.LayoutJeu.LayoutJeu;
 import javax.swing.*;
 import java.awt.*;
 
-public class JSudokuSidebar extends JPanel
+public class JSudokuSidebar extends JSidebarJeu
 {
-    LayoutJeu layout;
 
-    public JSudokuSidebar()
+
+
+    public JSudokuSidebar(LayoutJeu layout)
     {
-        this.layout = layout;
-
+        super(layout);
         setLayout(new GridLayout(13,2));
         setBackground(JStatic.HelpFrameBackgroundColor);
 

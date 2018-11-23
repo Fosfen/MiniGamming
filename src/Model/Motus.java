@@ -173,6 +173,11 @@ public class Motus extends Mots
 
     }
 
+    @Override
+    protected void updateScore(int s) {
+        this.score += s;
+    }
+
     public void jouer() {
 
         System.out.println(reponse);

@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Sudoku extends AbstractSudoku{
+public class Sudoku extends AbstractSudoku {
 
     private static int nbSudoku = 49150;
 
@@ -13,6 +13,12 @@ public class Sudoku extends AbstractSudoku{
         this.grille= new Integer[9][9];
         this.movePossible = new boolean[9][9];
     }
+
+    @Override
+    protected void updateScore(int s) {
+        this.score += s;
+    }
+
 
     @Override
     public void remplirMovePossible() { //Remplie movePossible
@@ -62,7 +68,7 @@ public class Sudoku extends AbstractSudoku{
         // Prend une grille aléatoirement dans la BDD.
 
         BufferedReader br = new BufferedReader(new FileReader("src/resCode/sudokuBDD.txt"));
-        String line = br.readLine();
+        String line;
         int count = 0;
         while ((line = br.readLine()) != null  && count<numSudoku) {
             count++;
