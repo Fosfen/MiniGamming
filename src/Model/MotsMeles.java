@@ -64,6 +64,7 @@ public class MotsMeles extends Grille
 
     }
 
+    // TODO remove
     public static void main(String[] args) {
         MotsMeles test = new MotsMeles(20, 20);
 
@@ -71,7 +72,7 @@ public class MotsMeles extends Grille
         {
             for (int j = 0; j < test.tailleY; j++)
             {
-                System.out.print(test.grille[i][j]);
+                System.out.print(test.grille[i][j] + " ");
             }
             System.out.println();
         }
