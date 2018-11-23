@@ -11,21 +11,23 @@ public class Motus extends Mots
         super();
     }
 
-    protected void verifierFinPartie()
-    {
+    protected void verifierFinPartie() {
         if (nbEssais == 11)
         {
             this.partieTerminee = true;
         }
     }
 
-    public void notifyObserver()
-    {
+    public void notifyObserver() {
 
     }
 
-    protected void jouerTour()
-    {
+    @Override
+    protected void updateScore(int s) {
+        this.score += s;
+    }
+
+    protected void jouerTour() {
 
     }
 }

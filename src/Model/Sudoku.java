@@ -15,6 +15,12 @@ public class Sudoku extends AbstractSudoku{
     }
 
     @Override
+    protected void updateScore(int s) {
+        this.score += s;
+    }
+
+
+    @Override
     public void remplirMovePossible() { //Remplie movePossible
         for(int i=0;i<grille.length;i++) {
             for (int j = 0; j < grille.length; j++) {
