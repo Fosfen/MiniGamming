@@ -1,8 +1,8 @@
 package Model;
 
 import Observer.Observer;
-
 import java.util.ArrayList;
+import java.awt.*;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -13,7 +13,6 @@ public class Motus extends Mots
     public static final String ANSI_WHITE = "\u001B[37m";
 
     private String[] movePossible;// OK pour une lettre bien placé, P pour une lettre mal placé, F pour une lettre complètement fausse.
-    private int[] occurence;
 
     public Motus ()
     {
@@ -189,4 +188,5 @@ public class Motus extends Mots
             jouerTour();
         }
     }
+
 }
