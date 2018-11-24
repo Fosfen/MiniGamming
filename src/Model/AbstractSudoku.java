@@ -65,13 +65,27 @@ public abstract class AbstractSudoku<T> extends Grille
         return (absentSurLigne(k,x) && absentSurColonne(k,y) && absentSurBloc(k,x,y));
     }
 
+    @Override
+    protected void updateScore(int s) {
+        this.score += s;
+    }
+
     protected boolean insertElement(T k,int x, int y){
         if (insertElementPossible(k,x,y)){
             if(movePossible[x][y]){
                 grille[x][y]=k;
+                updateScore(100);
                 return true;
             }
             return false;
+        }
+        else{
+            if(this.score>25){
+                updateScore(-25);
+            }
+            else{
+                this.score=0;
+            }
         }
         return false;
     }

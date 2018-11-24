@@ -14,21 +14,16 @@ public class Sudoku extends AbstractSudoku {
         this.movePossible = new boolean[9][9];
     }
 
-    @Override
-    protected void updateScore(int s) {
-        this.score += s;
-    }
-
 
     @Override
     public void remplirMovePossible() { //Remplie movePossible
         for(int i=0;i<grille.length;i++) {
             for (int j = 0; j < grille.length; j++) {
                 if(grille[i][j].equals(0)){
-                    movePossible[i][j]=false;
+                    movePossible[i][j]=true;
                 }
                 else {
-                    movePossible[i][j]=true;
+                    movePossible[i][j]=false;
                 }
             }
         }
