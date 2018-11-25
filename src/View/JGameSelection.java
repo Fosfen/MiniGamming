@@ -1,7 +1,9 @@
 package View;
 
+import Controller.MotusController;
 import Controller.PenduController;
 import Controller.SudokuController;
+import Model.Motus;
 import Model.Pendu;
 import Model.Sudoku;
 
@@ -92,9 +94,7 @@ public class JGameSelection extends JPanel
 
     public void lancerSudoku() { SudokuController sudokuController = new SudokuController(new Sudoku()); }
 
-    public void lancerMotus(){
-        // TODO
-    }
+    public void lancerMotus(){ MotusController motusController = new MotusController(new Motus());}
 
     public void lancerSudokuLettre(){
         // TODO

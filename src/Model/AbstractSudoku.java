@@ -1,11 +1,14 @@
 package Model;
 
+import com.sun.org.apache.xpath.internal.operations.String;
+
 import java.io.IOException;
 
 public abstract class AbstractSudoku<T> extends Grille
 {
     public AbstractSudoku(int taille) { // Constructeur
         super(taille, taille);
+        this.movePossible = new boolean[9][9];
     }
 
 
@@ -90,7 +93,38 @@ public abstract class AbstractSudoku<T> extends Grille
         return false;
     }
 
-    protected abstract boolean gagner();
+    protected boolean gagner(){ //Determine si la grille ne comporte plus de 0.
+        java.lang.String compare = "0";
+        for(int i=0;i<grille.length;i++) {
+            for (int j = 0; j < grille.length; j++) {
+                if(grille[i][j].equals(0) || grille[i][j].equals(compare)){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
-    protected abstract void jouer() throws IOException;
+    protected void remplirMovePossible() { //Remplie movePossible
+        java.lang.String compare = "0";
+        for(int i=0;i<grille.length;i++) {
+            for (int j = 0; j < grille.length; j++) {
+                if(grille[i][j].equals(0) || grille[i][j].equals(compare)){
+                    movePossible[i][j]=true;
+                }
+                else {
+                    movePossible[i][j]=false;
+                }
+            }
+        }
+    }
+
+    public void jouer() throws IOException { //permet de jouer au Sudoku dans le terminal.
+
+        initialisation();
+
+        while (!gagner()){
+            jouerTour();
+        }
+    }
 }

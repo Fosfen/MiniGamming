@@ -21,19 +21,4 @@ public abstract class Grille<T> extends AbstractModel
     }
 
     protected abstract void initialisation() throws IOException; // Initialise la grille
-
-    protected T[][] getGrille() {
-        return grille;
-    }
-
-    protected void affichageMovePossible(){
-        for(int i=0;i<movePossible.length;i++) {
-            for (int j = 0; j < movePossible.length; j++) {
-                System.out.print(movePossible[i][j]);
-            }
-            System.out.println();
-        }
-    }
-
-    protected abstract void remplirMovePossible();
 }

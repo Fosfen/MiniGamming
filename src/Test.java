@@ -1,5 +1,6 @@
 import Model.Motus;
 import Model.Sudoku;
+import Model.SudokuLettres;
 
 import java.io.IOException;
 
@@ -9,7 +10,11 @@ public class Test {
         //Motus m = new Motus();
         //m.jouer();
 
-        Sudoku sudoku = new Sudoku();
-        sudoku.jouer();
+        //Sudoku sudoku = new Sudoku();
+        //sudoku.jouer();
+
+        SudokuLettres s = new SudokuLettres();
+        s.jouer();
+
     }
 }

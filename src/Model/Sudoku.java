@@ -11,44 +11,6 @@ public class Sudoku extends AbstractSudoku {
     public Sudoku() { // Constructeur
         super(9);
         this.grille= new Integer[9][9];
-        this.movePossible = new boolean[9][9];
-    }
-
-
-    @Override
-    public void remplirMovePossible() { //Remplie movePossible
-        for(int i=0;i<grille.length;i++) {
-            for (int j = 0; j < grille.length; j++) {
-                if(grille[i][j].equals(0)){
-                    movePossible[i][j]=true;
-                }
-                else {
-                    movePossible[i][j]=false;
-                }
-            }
-        }
-    }
-
-    @Override
-    public boolean gagner(){ //Determine si la grille ne comporte plus de 0.
-        for(int i=0;i<grille.length;i++) {
-            for (int j = 0; j < grille.length; j++) {
-                if(grille[i][j].equals(0)){
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    @Override
-    public void jouer() throws IOException { //permet de jouer au Sudoku dans le terminal.
-
-        initialisation();
-
-        while (!gagner()){
-            jouerTour();
-        }
     }
 
     @Override
