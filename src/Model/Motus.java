@@ -132,7 +132,7 @@ public class Motus extends Mots
     protected void jouerTour(){
         if(nbEssais<6){
             Scanner sc = new Scanner(System.in);
-            String entree = sc.nextLine();
+            String entree = sc.nextLine().toUpperCase();
             if(entree.length()==reponse.length){
                 faireUnChoix(entree);
                 remplirMovePossible();

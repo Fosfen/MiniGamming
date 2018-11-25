@@ -19,29 +19,33 @@ public class JMotus extends JeuView
         this.model = motus;
         int tailleMots = motus.getReponse().length;
         grid = new JPanel();
-        grid.setLayout(new GridLayout(6,tailleMots));
+        grid.setLayout(new GridLayout(6, tailleMots));
         saisie = new JTextField();
         setLayout(new BorderLayout());
         genererLignes(grid,motus.getProgressionUser(), motus.getMovePossible());
         add(grid,BorderLayout.CENTER);
         add(saisie,BorderLayout.SOUTH);
 
-        //TODO 1 case = 1 Jlabel = 1 Lettre
-        //TODO 1 Lettre = 1 couleur
-        //TODO SOUS LA GRILLE, DONNER UN CHAMP DE SAISIE UTILISATEUR POUR QU'IL PUISSE SAISIR SES PROPOSITIONS
+
     }
 
-
-    public void genererLignes(JPanel panel, char[] tab, String[] colorTab){
+    //TODO 1 case = 1 Jlabel = 1 Lettre --> Affichage bizarre...
+    //TODO INTEGRATION
+    public void genererLignes(JPanel panel,char[] tab, String[] colorTab){
+             Font f = new Font("Andika basic", Font.BOLD, 10);
+        System.out.println(tab.length);
+        System.out.println( colorTab.length);
             for(int i=0 ; i < tab.length ; i++){
                 JLabel lettre = new JLabel(String.valueOf(tab[i]));
+                lettre.setFont(f);
                 if(colorTab[i] == "OK"){
-                    //TODO SET FONT ROUGE
+                    lettre.setForeground(new Color(255,0,0));       //On passe la lettre en rouge si elle est bien placée
                 }
                 else if (colorTab[i] == "P") {
-                    //TODO SET FONT YELLOW
+                    lettre.setForeground(new Color(255,255,0));     //On passe la lettre en jaune si elle contenue dans le mot
                 }
-                add(lettre);
+                panel.add(lettre);
+                System.out.println(lettre);
             }
     }
 
