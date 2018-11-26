@@ -91,15 +91,55 @@ public class MotsMeles extends Grille
     // Place un mot dans la grille en fonction des coordonnées de sa première lettre
     private boolean placerMot (char[] mot, int x, int y)
     {
-        boolean[] possible = new boolean[4];
+        boolean[] possible = new boolean[8];
 
+        // on vérifie tous les sens possibles
         if (((x+1) - mot.length) >= 0) possible[0] = true;
         if (((y+1) + mot.length) <= this.tailleY) possible[1] = true;
         if (((x+1) + mot.length) <= this.tailleX) possible[2] = true;
         if (mot.length <= (y-1)) possible[3] = true;
-        // TODO faire diagonales
+        if (possible[0] && possible[1]) possible[4] = true;
+        if (possible[1] && possible[2]) possible[5] = true;
+        if (possible[2] && possible[3]) possible[6] = true;
+        if (possible[3] && possible[0]) possible[7] = true;
+
+        ArrayList<Integer> possibles = new ArrayList<>();
+        for (int i = 0; i < 8; i++)
+        {
+            if (possible[i]) possibles.add(i);
+        }
+
+        // On détermine un sens aléatoire par rapport aux sens possibles
+        Random rd = new Random();
+        int sens = possibles.get(rd.nextInt(possibles.size()));
+
+        switch (sens)
+        {
+            case 0:
+                if(placementPossible(mot))
+                {
+
+                }
+                else
+                {
+                    placerMot(mot, x, y);
+                }
+                break;
+        }
 
         return true;
+    }
+
+    private boolean placementPossible(char[] mot)
+    {
+        boolean possible = true;
+        int i = 0;
+        while(i < mot.length && possible)
+        {
+
+        }
+
+        return possible;
     }
 
     @Override
