@@ -33,8 +33,6 @@ public class JMotus extends JeuView
     //TODO INTEGRATION
     public void genererLignes(JPanel panel,char[] tab, String[] colorTab){
              Font f = new Font("Andika basic", Font.BOLD, 10);
-        System.out.println(tab.length);
-        System.out.println( colorTab.length);
             for(int i=0 ; i < tab.length ; i++){
                 JLabel lettre = new JLabel(String.valueOf(tab[i]));
                 lettre.setFont(f);
@@ -45,7 +43,6 @@ public class JMotus extends JeuView
                     lettre.setForeground(new Color(255,255,0));     //On passe la lettre en jaune si elle contenue dans le mot
                 }
                 panel.add(lettre);
-                System.out.println(lettre);
             }
     }
 
