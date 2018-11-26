@@ -29,7 +29,7 @@ public class Pendu extends Mots
         }
     }
 
-    protected void jouerTour()
+    public void jouerTour()
     {
 
     }

@@ -21,4 +21,8 @@ public abstract class Grille<T> extends AbstractModel
     }
 
     protected abstract void initialisation() throws IOException; // Initialise la grille
+
+    public T[][] getGrille() {
+        return grille;
+    }
 }

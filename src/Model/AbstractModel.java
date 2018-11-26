@@ -13,7 +13,7 @@ public abstract class AbstractModel implements Observable
     protected int score;
 
     // Méthodes générales à tous les jeux
-    protected abstract void jouerTour();
+    public abstract void jouerTour();
     protected abstract void verifierFinPartie();
 
     public AbstractModel()

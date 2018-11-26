@@ -11,6 +11,11 @@ public class Sudoku extends AbstractSudoku {
     public Sudoku() { // Constructeur
         super(9);
         this.grille= new Integer[9][9];
+        try {
+            initialisation();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -49,7 +54,7 @@ public class Sudoku extends AbstractSudoku {
     }
 
     @Override
-    protected void jouerTour() { // permet de jouer tour dans le terminal
+    public void jouerTour() { // permet de jouer tour dans le terminal
         Scanner sc = new Scanner(System.in);
         System.out.print("Valeur : ");
         String val = sc.nextLine();
