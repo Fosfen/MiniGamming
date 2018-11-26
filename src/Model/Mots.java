@@ -76,6 +76,5 @@ public abstract class Mots extends AbstractModel
     protected void finPartie()
     {
         // TODO
-        System.out.println("Le mot à trouver était : " + String.valueOf(this.reponse));
     }
 }

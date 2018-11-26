@@ -1,7 +1,6 @@
 package View.JeuView;
 
 import Model.Motus;
-import View.JStatic;
 import View.LayoutJeu.LayoutJeu;
 
 import javax.swing.*;
