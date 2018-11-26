@@ -53,5 +53,4 @@ public class JMotus extends JeuView
             panel.add(lettre);
         }
     }
-
 }
