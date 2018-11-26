@@ -19,6 +19,8 @@ public class Motus extends Mots
         super();
         movePossible = new String[reponse.length];
         this.progressionUser = new char[this.reponse.length];
+
+        this.devoiler2Lettre();
     }
 
     protected void devoiler2Lettre(){

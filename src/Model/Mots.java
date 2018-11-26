@@ -11,7 +11,7 @@ public abstract class Mots extends AbstractModel
     protected boolean progress=true;
 
     // target : valeur correspondant à la ligne du dictionnaire qui sera choisie
-    private final int target = new Random().nextInt(369086)+1;
+
 
     // Constructeur
     public Mots ()
@@ -30,8 +30,10 @@ public abstract class Mots extends AbstractModel
     }
 
     // Génère un mot aléatoire à partir du dictionnaire
-    private String genererMot(File dictionnaire)
+    public static String genererMot(File dictionnaire)
     {
+        final int target = new Random().nextInt(369086)+1;
+
         try
         {
             FileReader fr = new FileReader(dictionnaire);

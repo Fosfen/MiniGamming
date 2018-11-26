@@ -14,36 +14,43 @@ public class JMotus extends JeuView
 
     public JMotus(LayoutJeu layout, Motus motus)
     {
-
         super(layout);
+
         this.model = motus;
-        int tailleMots = motus.getReponse().length;
+        int tailleMot = motus.getReponse().length;
+
         grid = new JPanel();
-        grid.setLayout(new GridLayout(6, tailleMots));
-        saisie = new JTextField();
-        setLayout(new BorderLayout());
+        grid.setLayout(new GridLayout(0, tailleMot));
+
         genererLignes(grid,motus.getProgressionUser(), motus.getMovePossible());
+
+        saisie = new JTextField();
+
+        setLayout(new BorderLayout());
         add(grid,BorderLayout.CENTER);
         add(saisie,BorderLayout.SOUTH);
-
-
     }
 
-    //TODO 1 case = 1 Jlabel = 1 Lettre --> Affichage bizarre...
+    // TODO Mettre des borders aux cases + centrer les JLabels
     //TODO INTEGRATION
-    public void genererLignes(JPanel panel,char[] tab, String[] colorTab){
-             Font f = new Font("Andika basic", Font.BOLD, 10);
-            for(int i=0 ; i < tab.length ; i++){
-                JLabel lettre = new JLabel(String.valueOf(tab[i]));
-                lettre.setFont(f);
-                if(colorTab[i] == "OK"){
-                    lettre.setForeground(new Color(255,0,0));       //On passe la lettre en rouge si elle est bien placée
-                }
-                else if (colorTab[i] == "P") {
-                    lettre.setForeground(new Color(255,255,0));     //On passe la lettre en jaune si elle contenue dans le mot
-                }
-                panel.add(lettre);
-            }
-    }
+    public void genererLignes(JPanel panel, char[] tab, String[] colorTab)
+    {
+        Font f = new Font("Andika basic", Font.BOLD, 36);
 
+        for(int i=0 ; i < tab.length ; i++)
+        {
+            JLabel lettre = new JLabel(String.valueOf(tab[i]));
+            lettre.setFont(f);
+
+            if(colorTab[i] == "OK")
+            {
+                lettre.setForeground(new Color(255,0,0));       //On passe la lettre en rouge si elle est bien placée
+            }
+            else if (colorTab[i] == "P")
+            {
+                lettre.setForeground(new Color(255,255,0));     //On passe la lettre en jaune si elle contenue dans le mot
+            }
+            panel.add(lettre);
+        }
+    }
 }
