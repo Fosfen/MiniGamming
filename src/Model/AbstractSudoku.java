@@ -62,6 +62,7 @@ public abstract class AbstractSudoku<T> extends Grille
                 System.out.println();
             }
         }
+        System.out.println("\n");
     }
 
     protected boolean insertElementPossible(T k,int x, int y){

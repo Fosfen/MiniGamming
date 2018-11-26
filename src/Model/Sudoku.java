@@ -53,17 +53,26 @@ public class Sudoku extends AbstractSudoku {
         br.close();
     }
 
-    @Override
-    public void jouerTour() { // permet de jouer tour dans le terminal
-        Scanner sc = new Scanner(System.in);
+
+    public void jouerTour(String X, String Y, String VAL) { // permet de jouer tour dans le terminal
+       /* Scanner sc = new Scanner(System.in);
         System.out.print("Valeur : ");
         String val = sc.nextLine();
         System.out.print("x : ");
         String x = sc.nextLine();
         System.out.print("y : ");
-        String y = sc.nextLine();
+        String y = sc.nextLine();*/
+
+        String x = X;
+        String y = Y;
+        String val = VAL;
         insertElement(Integer.parseInt(val),Integer.parseInt(x),Integer.parseInt(y));
         affichageSudoku();
+    }
+
+    @Override
+    public void jouerTour() {
+
     }
 
     @Override

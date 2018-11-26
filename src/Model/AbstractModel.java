@@ -37,4 +37,6 @@ public abstract class AbstractModel implements Observable
     {
         this.observers = new ArrayList<>();
     }
+
+    public abstract void jouerTour(String text, String text1, String text2);
 }

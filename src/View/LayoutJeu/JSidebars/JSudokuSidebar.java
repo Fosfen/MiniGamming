@@ -1,5 +1,6 @@
 package View.LayoutJeu.JSidebars;
 
+import Controller.SudokuController;
 import View.JStatic;
 import View.LayoutJeu.LayoutJeu;
 
@@ -8,48 +9,49 @@ import java.awt.*;
 
 public class JSudokuSidebar extends JSidebarJeu
 {
-
-
+    JTextField x;
+    JTextField y;
+    JTextField val;
+    JButton validate;
 
     public JSudokuSidebar(LayoutJeu layout)
     {
         super(layout);
-        setLayout(new GridLayout(13,2));
+        Font f = new Font("Andika basic", Font.BOLD, 36);
+
+        JLabel xlabel = new JLabel("X");
+        x = new JTextField();
+        x.setToolTipText("X");
+        x.setPreferredSize(new Dimension(50,50));
+        xlabel.setFont(f);
+
+        JLabel ylabel = new JLabel("Y");
+        y = new JTextField();
+        y.setToolTipText("Y");
+        y.setPreferredSize(new Dimension(50,50));
+        ylabel.setFont(f);
+
+        JLabel vlabel = new JLabel("VALEUR");
+        val = new JTextField();
+        val.setToolTipText("val");
+        val.setPreferredSize(new Dimension(50,50));
+        vlabel.setFont(f);
+
+        setLayout(new GridLayout(0,1));
         setBackground(JStatic.HelpFrameBackgroundColor);
 
-        JButton one = new JButton("1");
-        one.addActionListener(arg0 -> Action());
-        JButton two = new JButton("2");
-        two.addActionListener(arg0 -> Action());
-        JButton three = new JButton("3");
-        three.addActionListener(arg0 -> Action());
-        JButton four = new JButton("4");
-        four.addActionListener(arg0 -> Action());
-        JButton five = new JButton("5");
-        five.addActionListener(arg0 -> Action());
-        JButton six = new JButton("6");
-        six.addActionListener(arg0 -> Action());
-        JButton seven = new JButton("7");
-        seven.addActionListener(arg0 -> Action());
-        JButton eight = new JButton("8");
-        eight.addActionListener(arg0 -> Action());
-        JButton nine = new JButton("9");
-        nine.addActionListener(arg0 -> Action());
+        add(xlabel);
+        add(x);
+        add(ylabel);
+        add(y);
+        add(vlabel);
+        add(val);
 
-
-        add(one);
-        add(two);
-        add(three);
-        add(four);
-        add(five);
-        add(six);
-        add(seven);
-        add(eight);
-        add(nine);
+        validate = new JButton("Inserer valeur");
+        validate.addActionListener(arg0 -> ((SudokuController) this.layout.getController()).getModel().jouerTour(x.getText(),y.getText(),val.getText()));
+        add(validate);
 
     }
 
-    public void Action()
-    {
-    }
+
 }

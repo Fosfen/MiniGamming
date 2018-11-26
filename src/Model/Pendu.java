@@ -21,6 +21,11 @@ public class Pendu extends Mots
        this.score += s;
     }
 
+    @Override
+    public void jouerTour(String text, String text1, String text2) {
+
+    }
+
     private void initProgress()
     {
         for (int i = 0; i < this.reponse.length; i++)

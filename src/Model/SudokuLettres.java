@@ -18,6 +18,11 @@ public class SudokuLettres extends AbstractSudoku{
         lettresPossible = new ArrayList<>();
     }
 
+    @Override
+    public void jouerTour(String text, String text1, String text2) {
+
+    }
+
     private void remplirLettresPossibles(){
         for(int i=0;i<grille.length;i++){
             for (int j=0;j<grille.length;j++){

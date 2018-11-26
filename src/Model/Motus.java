@@ -203,6 +203,11 @@ public class Motus extends Mots
         this.score += s;
     }
 
+    @Override
+    public void jouerTour(String text, String text1, String text2) {
+
+    }
+
     public void jouer() {
 
         System.out.println(reponse);

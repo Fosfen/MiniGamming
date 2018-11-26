@@ -33,6 +33,11 @@ public class MotsMeles extends Grille
     }
 
     @Override
+    public void jouerTour(String text, String text1, String text2) {
+
+    }
+
+    @Override
     protected void initialisation() throws IOException
     {
         Random random = new Random();
