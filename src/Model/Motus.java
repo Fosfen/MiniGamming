@@ -120,6 +120,11 @@ public class Motus extends Mots
         affichageMot();
     }
 
+    @Override
+    public void jouerTour() {
+
+    }
+
     protected void verifierFinPartie()
     {
         for(int i=0;i<movePossible.length;i++){
@@ -131,10 +136,8 @@ public class Motus extends Mots
         progress = false;
     }
 
-    protected void jouerTour(){
+    public void jouerTour(String entree){
         if(nbEssais<6){
-            Scanner sc = new Scanner(System.in);
-            String entree = sc.nextLine().toUpperCase();
             if(entree.length()==reponse.length){
                 faireUnChoix(entree);
                 remplirMovePossible();

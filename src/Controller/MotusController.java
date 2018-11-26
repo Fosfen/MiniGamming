@@ -18,4 +18,9 @@ public class MotusController extends MotsController {
         this.jeuFront.setTitle(JStatic.StaticTitre + "Le motus");
         this.addObserver();
     }
+
+    public void propose(String proposition){
+        ((Motus) this.model).jouerTour(proposition);
+    }
+
 }

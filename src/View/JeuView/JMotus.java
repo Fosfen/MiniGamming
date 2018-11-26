@@ -1,5 +1,6 @@
 package View.JeuView;
 
+import Controller.MotusController;
 import Model.Motus;
 import View.LayoutJeu.LayoutJeu;
 
@@ -9,6 +10,7 @@ import java.awt.*;
 public class JMotus extends JeuView
 {
     JPanel grid;
+    JPanel footer;
     JTextField saisie;
 
     public JMotus(LayoutJeu layout, Motus motus)
@@ -17,20 +19,29 @@ public class JMotus extends JeuView
 
         this.model = motus;
         int tailleMot = motus.getReponse().length;
-
-        grid = new JPanel();
-        grid.setLayout(new GridLayout(0, tailleMot));
-
-        genererLignes(grid,motus.getProgressionUser(), motus.getMovePossible());
-
-        saisie = new JTextField();
+        JButton validate = new JButton("Valider");
 
         setLayout(new BorderLayout());
-        add(grid,BorderLayout.CENTER);
-        add(saisie,BorderLayout.SOUTH);
+
+        grid = new JPanel();                                                                //Layout support du motus
+        grid.setLayout(new GridLayout(0, tailleMot));
+
+        footer = new JPanel();
+        footer.setLayout(new FlowLayout(FlowLayout.CENTER));
+        genererLignes(grid,motus.getProgressionUser(), motus.getMovePossible());            // génération de la première ligne
+
+        saisie = new JTextField();
+        saisie.setPreferredSize(new Dimension(900,25));
+
+        validate.addActionListener(arg0 -> ((MotusController) this.layout.getController()).propose(saisie.getText()));
+        footer.add(saisie);
+        footer.add(validate);
+
+        add(grid,BorderLayout.CENTER);          //ajout de la grille au centre de la fenêtre
+        add(footer,BorderLayout.SOUTH);
     }
 
-    // TODO Mettre des borders aux cases + centrer les JLabels
+
     //TODO INTEGRATION
     public void genererLignes(JPanel panel, char[] tab, String[] colorTab)
     {
@@ -38,6 +49,7 @@ public class JMotus extends JeuView
 
         for(int i=0 ; i < tab.length ; i++)
         {
+            JPanel supportLettre = new JPanel(new FlowLayout(FlowLayout.CENTER));
             JLabel lettre = new JLabel(String.valueOf(tab[i]));
             lettre.setFont(f);
 
@@ -49,7 +61,10 @@ public class JMotus extends JeuView
             {
                 lettre.setForeground(new Color(255,255,0));     //On passe la lettre en jaune si elle contenue dans le mot
             }
-            panel.add(lettre);
+            supportLettre.setBorder(BorderFactory.createLineBorder(Color.black));
+            supportLettre.add(lettre);
+            panel.add(supportLettre);
+            panel.validate();
         }
     }
 }

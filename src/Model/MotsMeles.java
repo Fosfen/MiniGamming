@@ -143,7 +143,7 @@ public class MotsMeles extends Grille
     }
 
     @Override
-    protected void jouerTour() {
+    public void jouerTour() {
 
     }
 

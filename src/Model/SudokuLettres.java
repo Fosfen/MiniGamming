@@ -76,7 +76,7 @@ public class SudokuLettres extends AbstractSudoku{
 
 
     @Override
-    protected void jouerTour() {
+    public void jouerTour() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Valeur : ");
         String val = sc.nextLine();
