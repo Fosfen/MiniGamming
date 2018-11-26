@@ -12,6 +12,7 @@ public class PenduController extends MotsController
     {
         super(pendu);
 
+        // TODO redirect la création du LayoutJeu à AbstractConroller
         this.jeuFront = new LayoutJeu(this); // TODO pour les autres controllers
         this.jeuFront.setSidebar(new JPenduSidebar(this.jeuFront)); // TODO pour les autres controllers
         this.jeuFront.setPanelJeu(new JPendu(this.jeuFront, (Pendu) this.model)); // TODO pour les autres controllers

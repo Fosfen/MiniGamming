@@ -1,11 +1,14 @@
 package Model;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MotsMeles extends Grille
 {
     public static final Character[] lettres = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+    private ArrayList<Integer[]> coordReponses; // Liste des coordonnées des mots réponses (ex : ( [0, 0], [0,1], [0,2] ) pour un mot à 3 lettres situé en haut à gauche (horizontal) )
 
     public MotsMeles (int x, int y)
     {
@@ -20,6 +23,8 @@ public class MotsMeles extends Grille
         {
             e.printStackTrace();
         }
+
+        this.remplirGrille();
     }
 
     @Override
@@ -42,6 +47,59 @@ public class MotsMeles extends Grille
                 this.grille[i][j] = lettres[currentLetterNumber];
             }
         }
+    }
+
+    private void remplirGrille()
+    {
+        // Répète la génération d'un mot 10 fois
+        for (int i = 0; i < 10; i++)
+        {
+            char[] currentMot = Mots.genererMot(new File("src/resCode/dictionnaire.txt")).toCharArray(); // Mot à générer
+            char targetLetter = currentMot[0]; // On cherche la première lettre du mot
+            char currentLetter;
+            ArrayList<Integer[]>  coordLettres = new ArrayList<>();
+
+            // On parcours la grille
+            for (int j = 0; j < this.tailleX; j++)
+            {
+                for (int k = 0; k < this.tailleY; k++)
+                {
+                    currentLetter = (char) this.grille[j][k];
+
+                    // si on trouve la bonne lettre, on y ajoute les coordonnées
+                    if (currentLetter == targetLetter)
+                    {
+                        Integer[] coords = {j, k};
+                        coordLettres.add(coords);
+                    }
+                }
+            }
+
+            // On place le mot
+            Random rd = new Random();
+            Integer[] chosen = coordLettres.get(rd.nextInt(coordLettres.size()));
+
+            // si on ne peut pas placer le mot, on recommence avec un autre
+            if (!this.placerMot(currentMot, chosen[0], chosen[1]))
+            {
+                i--;
+            }
+
+        }
+    }
+
+    // Place un mot dans la grille en fonction des coordonnées de sa première lettre
+    private boolean placerMot (char[] mot, int x, int y)
+    {
+        boolean[] possible = new boolean[4];
+
+        if (((x+1) - mot.length) >= 0) possible[0] = true;
+        if (((y+1) + mot.length) <= this.tailleY) possible[1] = true;
+        if (((x+1) + mot.length) <= this.tailleX) possible[2] = true;
+        if (mot.length <= (y-1)) possible[3] = true;
+        // TODO faire diagonales
+
+        return true;
     }
 
     @Override
