@@ -16,11 +16,11 @@ public class SudokuLettres extends AbstractSudoku{
         super(9);
         this.grille=new String[9][9];
         lettresPossible = new ArrayList<>();
-    }
-
-    @Override
-    public void jouerTour(String text, String text1, String text2) {
-
+        try {
+            initialisation();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void remplirLettresPossibles(){
@@ -81,16 +81,19 @@ public class SudokuLettres extends AbstractSudoku{
 
 
     @Override
-    public void jouerTour() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Valeur : ");
-        String val = sc.nextLine();
-        System.out.print("x : ");
-        String x = sc.nextLine();
-        System.out.print("y : ");
-        String y = sc.nextLine();
+    public void jouerTour(String V, String X, String Y) {
+        String val = V;
+
+        String x =X;
+
+        String y = Y;
         insertElement(val,Integer.parseInt(x),Integer.parseInt(y));
         affichageSudoku();
+    }
+
+    @Override
+    public void jouerTour() {
+
     }
 
     @Override

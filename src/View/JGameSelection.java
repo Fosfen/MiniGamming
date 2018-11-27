@@ -3,9 +3,11 @@ package View;
 import Controller.MotusController;
 import Controller.PenduController;
 import Controller.SudokuController;
+import Controller.SudokuLettresController;
 import Model.Motus;
 import Model.Pendu;
 import Model.Sudoku;
+import Model.SudokuLettres;
 
 import javax.swing.*;
 import java.awt.*;
@@ -71,10 +73,10 @@ public class JGameSelection extends JPanel
         buttonMotus.addActionListener(arg0 -> lancerMotus());
         buttonMotsMeles.addActionListener(arg0 -> lancerSudokuLettre());
         buttonMotsMeles.addActionListener(arg0 -> lancerMotsMelees());
+        buttonSudokuLettres.addActionListener(arg0 -> lancerSudokuLettre());
     }
 
-    private void addComponents()
-    {
+    private void addComponents() {
         this.add(titlePendu);
         this.add(buttonPendu);
         this.add(titleSudoku);
@@ -96,9 +98,7 @@ public class JGameSelection extends JPanel
 
     public void lancerMotus(){ MotusController motusController = new MotusController(new Motus());}
 
-    public void lancerSudokuLettre(){
-        // TODO
-}
+    public void lancerSudokuLettre(){ SudokuLettresController sudokuLettresController = new SudokuLettresController(new SudokuLettres()); }
 
     public void lancerMotsMelees(){
         // TODO
