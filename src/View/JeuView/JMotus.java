@@ -29,7 +29,7 @@ public class JMotus extends JeuView
         footer = new JPanel();
         footer.setLayout(new FlowLayout(FlowLayout.CENTER));
         genererLignes(grid,motus.getProgressionUser(), motus.getMovePossible());            // génération de la première ligne
-
+       
         saisie = new JTextField();
         saisie.setPreferredSize(new Dimension(900,25));
 

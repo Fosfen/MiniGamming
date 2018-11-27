@@ -71,7 +71,6 @@ public class JGameSelection extends JPanel
         buttonPendu.addActionListener(arg0 -> lancerPendu());
         buttonSudoku.addActionListener(arg0 -> lancerSudoku());
         buttonMotus.addActionListener(arg0 -> lancerMotus());
-        buttonMotsMeles.addActionListener(arg0 -> lancerSudokuLettre());
         buttonMotsMeles.addActionListener(arg0 -> lancerMotsMelees());
         buttonSudokuLettres.addActionListener(arg0 -> lancerSudokuLettre());
     }
