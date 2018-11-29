@@ -2,6 +2,8 @@ package Model;
 
 import Observer.Observer;
 
+import java.util.Scanner;
+
 public class Pendu extends Mots
 {
     private char[] progressionUser;
@@ -129,5 +131,16 @@ public class Pendu extends Mots
     public String getFileName()
     {
         return this.fileName;
+    }
+
+    public static void main(String[] args)
+    {
+        Pendu pendu = new Pendu();
+
+        while(!pendu.partieTerminee)
+        {
+            Scanner sc = new Scanner(System.in);
+
+        }
     }
 }
