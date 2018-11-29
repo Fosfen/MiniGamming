@@ -1,6 +1,8 @@
 package Model;
 
 import Observer.Observer;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.*;
 import java.util.Random;
@@ -125,18 +127,18 @@ public class Motus extends Mots
 
     }
 
-    protected void verifierFinPartie()
-    {
+    protected void verifierFinPartie() throws IOException {
         for(int i=0;i<movePossible.length;i++){
             if(movePossible[i]!="OK"){
                 return;
             }
         }
+        ecrireScoreCSV("default","motus");
         System.out.println("Gagné !!");
         progress = false;
     }
 
-    public void jouerTour(String entree){
+    public void jouerTour(String entree) throws IOException {
         if(nbEssais<6){
             if(entree.length()==reponse.length){
                 faireUnChoix(entree);

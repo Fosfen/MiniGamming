@@ -2,6 +2,8 @@ package Model;
 
 import Observer.Observer;
 
+import java.io.IOException;
+
 public class Pendu extends Mots
 {
     private char[] progressionUser;
@@ -40,8 +42,7 @@ public class Pendu extends Mots
     }
 
     // L'utilisateur choisi une lettre
-    public void choisirLettre(char lettre)
-    {
+    public void choisirLettre(char lettre) throws IOException {
         // On vérifie si la lettre est présente dans le mot réponse
         char lettreTemp = '\\';
         int i = 1;
@@ -86,14 +87,15 @@ public class Pendu extends Mots
     }
 
     // Un tour a été joué, on vérifie si la partie est terminée où si elle continue
-    protected void verifierFinPartie()
-    {
+    protected void verifierFinPartie() throws IOException {
         if (nbEssais == 8)
         {
             this.partieTerminee = true;
             if (this.progressionUser == this.reponse)
             {
                 this.partieGagnee = true;
+
+                ecrireScoreCSV("default","pendu");
             }
         }
     }
