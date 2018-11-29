@@ -3,8 +3,10 @@ package View;
 import Controller.AbstractController;
 import Controller.PenduController;
 
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 /**
  * @author Duthoit Raphael
@@ -16,6 +18,9 @@ public class JMenu extends JPanel {
     private Accueil MainFrame;
     private JPanel panelButton;
     private JPanel panelLogo;
+    private Clip audioClip;
+    private AudioInputStream audioStream;
+
 
     public JMenu(Accueil support) {
         this.MainFrame = support;
@@ -47,6 +52,7 @@ public class JMenu extends JPanel {
         setLayout(new BorderLayout());
         this.add(panelLogo, BorderLayout.LINE_START);
         this.add(panelButton, BorderLayout.CENTER);
+        musique();
     }
         //Méthode appellée par la lambda expression permettant de charger un LayoutMenu avec un PanelClassement
         private void LoadClassement() {
@@ -58,4 +64,25 @@ public class JMenu extends JPanel {
             this.MainFrame.setVisible(false);
             new LayoutMenu(new JGameSelection(), "Choix du jeu", this.MainFrame);
         }
+
+
+    public void musique(){
+        try {
+            if(audioClip != null && audioStream != null){
+                audioClip.close();
+                audioStream.close();
+            }
+            File audioFile = new File("src/View/res/music.wav");
+            audioStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioStream.getFormat();
+            DataLine.Info info = new DataLine.Info(Clip.class, format);
+            audioClip = (Clip) AudioSystem.getLine(info);
+            audioClip.open(audioStream);
+            audioClip.start();
+            audioClip.loop(Clip.LOOP_CONTINUOUSLY);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     }
