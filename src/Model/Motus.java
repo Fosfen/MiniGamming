@@ -144,6 +144,21 @@ public class Motus extends Mots
                 verifierFinPartie();
                 affichageMot(choix);
                 nbEssais++;
+
+                int score = 0;
+                for(int i = 0; i < this.movePossible.length; i++)
+                {
+                    if (this.movePossible[i] == "OK")
+                    {
+                        score += 10 * (this.reponse.length - this.nbEssais);
+                    }
+                    else if (this.movePossible[i] == "P")
+                    {
+                        score += 5 * (this.reponse.length - this.nbEssais);
+                    }
+
+                    this.updateScore(score);
+                }
             }
             else{
                 System.out.println("Votre mot n'a pas la même taille");
@@ -206,18 +221,6 @@ public class Motus extends Mots
     @Override
     public void jouerTour(String text, String text1, String text2) {
 
-    }
-
-    public void jouer() {
-
-        System.out.println(reponse);
-        System.out.println(reponse.length);
-
-        initialisation();
-
-        while (progress) {
-            jouerTour();
-        }
     }
 
 }
