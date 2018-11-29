@@ -15,7 +15,5 @@ public class Test {
 
         SudokuLettres s = new SudokuLettres();
         //s.jouer();
-
-        s.ecrireScoreCSV("Sudoku","Julien");
     }
 }
