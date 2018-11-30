@@ -30,7 +30,8 @@ public class Pendu extends Mots
 
     private void initProgress()
     {
-        for (int i = 0; i < this.reponse.length; i++)
+        this.progressionUser[0] = this.reponse[0];
+        for (int i = 1; i < this.reponse.length; i++)
         {
             this.progressionUser[i] = '_';
         }
@@ -100,7 +101,8 @@ public class Pendu extends Mots
         }
     }
 
-    private void updateProgression(char lettre){
+    private void updateProgression(char lettre)
+    {
         for ( int i = 0 ; i < reponse.length ; i++)
         {
             if(lettre == reponse[i])
@@ -137,10 +139,28 @@ public class Pendu extends Mots
     {
         Pendu pendu = new Pendu();
 
+        for (int i = 0; i < pendu.progressionUser.length; i++)
+        {
+            System.out.print(pendu.getProgressionUser()[i] + " ");
+        }
+
         while(!pendu.partieTerminee)
         {
             Scanner sc = new Scanner(System.in);
+            pendu.choisirLettre(sc.nextLine().charAt(0));
+            for (int i = 0; i < pendu.progressionUser.length; i++)
+            {
+                System.out.print(pendu.getProgressionUser()[i] + " ");
+            }
+        }
 
+        if (pendu.partieGagnee)
+        {
+            System.out.println("Gagné !!");
+        }
+        else
+        {
+            System.out.println("Perdu");
         }
     }
 }

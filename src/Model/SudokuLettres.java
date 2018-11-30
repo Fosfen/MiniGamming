@@ -105,4 +105,18 @@ public class SudokuLettres extends AbstractSudoku{
     public void notifyObserver() {
 
     }
+
+    public static void main(String[] args)
+    {
+        SudokuLettres sudoku = new SudokuLettres();
+
+        try
+        {
+            sudoku.jouerTour("A", "0", "0");
+        }
+        catch (Exception e)
+        {
+
+        }
+    }
 }
