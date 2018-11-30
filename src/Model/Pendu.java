@@ -33,10 +33,15 @@ public class Pendu extends Mots
 
     private void initProgress()
     {
-        this.progressionUser[0] = this.reponse[0];
         for (int i = 1; i < this.reponse.length; i++)
         {
             this.progressionUser[i] = '_';
+        }
+
+        try {
+            this.choisirLettre(this.reponse[0]);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -129,7 +134,14 @@ public class Pendu extends Mots
     {
         for (Observer obs : this.observers)
         {
-            // TODO
+            obs.updateScore();
+
+            String progression = "";
+            for (int i = 0; i < this.progressionUser.length; i++)
+            {
+                progression += this.progressionUser[i] +  " ";
+            }
+            obs.updateProgress(progression);
         }
     }
 

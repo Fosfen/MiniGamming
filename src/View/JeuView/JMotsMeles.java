@@ -9,4 +9,8 @@ public class JMotsMeles extends JGrille {
         super(layout, 20, 20);
     }
 
+    @Override
+    public void updateProgress(String progress) {
+
+    }
 }

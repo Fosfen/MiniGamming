@@ -49,4 +49,14 @@ public class LayoutJeu extends JFrame implements Observer
     {
         return this.controller;
     }
+
+    public void updateScore()
+    {
+        this.navbar.score.setText("Score : " + String.valueOf(this.panelJeu.getModel().getScore()));
+    }
+
+    public void updateProgress(String progress)
+    {
+        this.panelJeu.updateProgress(progress);
+    }
 }

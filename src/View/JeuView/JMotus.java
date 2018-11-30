@@ -62,16 +62,21 @@ public class JMotus extends JeuView
 
             if(colorTab[i] == "OK")
             {
-                lettre.setForeground(new Color(255,0,0));       //On passe la lettre en rouge si elle est bien placée
+                lettre.setForeground(new Color(211, 51, 14));       //On passe la lettre en rouge si elle est bien placée
             }
             else if (colorTab[i] == "P")
             {
-                lettre.setForeground(new Color(255,255,0));     //On passe la lettre en jaune si elle contenue dans le mot
+                lettre.setForeground(new Color(255, 200, 47));     //On passe la lettre en jaune si elle contenue dans le mot
             }
             supportLettre.setBorder(BorderFactory.createLineBorder(Color.black));
             supportLettre.add(lettre);
             panel.add(supportLettre);
             panel.validate();
         }
+    }
+
+    public void updateProgress(String progress)
+    {
+        this.genererLignes(this.grid, progress.toCharArray(), ((Motus) this.layout.getController().getModel()).getMovePossible());
     }
 }
