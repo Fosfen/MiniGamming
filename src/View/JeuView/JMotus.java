@@ -6,6 +6,7 @@ import View.LayoutJeu.LayoutJeu;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class JMotus extends JeuView
 {
@@ -33,7 +34,13 @@ public class JMotus extends JeuView
         saisie = new JTextField();
         saisie.setPreferredSize(new Dimension(900,25));
 
-        validate.addActionListener(arg0 -> ((MotusController) this.layout.getController()).propose(saisie.getText()));
+        validate.addActionListener(arg0 -> {
+            try {
+                ((MotusController) this.layout.getController()).propose(saisie.getText());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
         footer.add(saisie);
         footer.add(validate);
 

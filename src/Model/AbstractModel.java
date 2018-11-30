@@ -2,7 +2,8 @@ package Model;
 
 import Observer.Observable;
 import Observer.Observer;
-
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public abstract class AbstractModel implements Observable
@@ -14,7 +15,7 @@ public abstract class AbstractModel implements Observable
 
     // Méthodes générales à tous les jeux
     public abstract void jouerTour();
-    protected abstract void verifierFinPartie();
+    protected abstract void verifierFinPartie() throws IOException;
 
     public AbstractModel()
     {
@@ -38,5 +39,15 @@ public abstract class AbstractModel implements Observable
         this.observers = new ArrayList<>();
     }
 
-    public abstract void jouerTour(String text, String text1, String text2);
+    public abstract void jouerTour(String text, String text1, String text2) throws IOException;
+
+    public void ecrireScoreCSV(String pseudo,String file) throws IOException {
+
+        FileWriter fw = new FileWriter("src/resCode/Classements/"+file+".csv",true);
+
+        fw.write("\n");
+        fw.write(score+";"+pseudo);
+
+        fw.close();
+    }
 }

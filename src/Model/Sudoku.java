@@ -54,12 +54,15 @@ public class Sudoku extends AbstractSudoku {
     }
 
 
-    public void jouerTour(String X, String Y, String VAL) {
+    public void jouerTour(String X, String Y, String VAL) throws IOException {
         String x = X;
         String y = Y;
         String val = VAL;
         insertElement(Integer.parseInt(val),Integer.parseInt(x),Integer.parseInt(y));
         affichageSudoku();
+
+        ecrireScoreCSV("default","sudoku");
+
     }
 
     @Override

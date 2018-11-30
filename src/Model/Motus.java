@@ -1,6 +1,8 @@
 package Model;
 
 import Observer.Observer;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.*;
 import java.util.Random;
@@ -125,21 +127,37 @@ public class Motus extends Mots
 
     }
 
-    protected void verifierFinPartie()
-    {
-        for(int i=0;i<movePossible.length;i++){
-            if(movePossible[i]!="OK"){
-                return;
+    protected void verifierFinPartie() throws IOException {
+        if (this.nbEssais < 6)
+        {
+            for(int i=0;i<movePossible.length;i++){
+                if(movePossible[i]!="OK"){
+                    return;
+                }
             }
+            System.out.println("Gagné !!");
+            progress = false;
+            this.partieTerminee = true;
+            this.partieGagnee = true;
         }
+        else
+        {
+            System.out.println("Perdu");
+            this.progress = false;
+            this.partieTerminee = true;
+            this.partieGagnee = false;
+        }
+
+        ecrireScoreCSV("default","motus");
         System.out.println("Gagné !!");
         progress = false;
+
     }
 
-    public void jouerTour(String entree){
+    public void jouerTour(String entree) throws IOException {
         if(nbEssais<6){
             if(entree.length()==reponse.length){
-                faireUnChoix(entree);
+                faireUnChoix(entree.toUpperCase());
                 remplirMovePossible();
                 verifierFinPartie();
                 affichageMot(choix);
@@ -169,6 +187,8 @@ public class Motus extends Mots
             progress = false;
             finPartie();
         }
+
+        this.verifierFinPartie();
     }
 
     protected void affichageMot(){
@@ -223,4 +243,15 @@ public class Motus extends Mots
 
     }
 
+    public static void main(String[] args) throws IOException {
+        Motus motus = new Motus();
+        motus.affichageMot();
+
+        while(!motus.partieTerminee)
+        {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Entrez un mot de " + motus.reponse.length + " lettres");
+            motus.jouerTour(sc.nextLine());
+        }
+    }
 }

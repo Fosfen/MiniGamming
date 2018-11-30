@@ -14,7 +14,6 @@ public class Test {
         //sudoku.jouer();
 
         SudokuLettres s = new SudokuLettres();
-        s.jouer();
-
+        //s.jouer();
     }
 }

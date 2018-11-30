@@ -81,12 +81,14 @@ public class SudokuLettres extends AbstractSudoku{
 
 
     @Override
-    public void jouerTour(String V, String X, String Y) {
+    public void jouerTour(String V, String X, String Y) throws IOException {
         String val = V;
         String x =X;
         String y = Y;
         insertElement(val,Integer.parseInt(x),Integer.parseInt(y));
         affichageSudoku();
+
+        ecrireScoreCSV("default","sudokulettre");
     }
 
     @Override
@@ -103,7 +105,6 @@ public class SudokuLettres extends AbstractSudoku{
     public void notifyObserver() {
 
     }
-
 
     public static void main(String[] args)
     {
