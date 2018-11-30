@@ -45,8 +45,8 @@ public abstract class AbstractModel implements Observable
 
         FileWriter fw = new FileWriter("src/resCode/Classements/"+file+".csv",true);
 
-        fw.write("\n");
         fw.write(score+";"+pseudo);
+        fw.write("\n");
 
         fw.close();
     }

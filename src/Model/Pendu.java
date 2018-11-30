@@ -30,10 +30,15 @@ public class Pendu extends Mots
 
     private void initProgress()
     {
-        this.progressionUser[0] = this.reponse[0];
         for (int i = 1; i < this.reponse.length; i++)
         {
             this.progressionUser[i] = '_';
+        }
+
+        try {
+            this.choisirLettre(this.reponse[0]);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
