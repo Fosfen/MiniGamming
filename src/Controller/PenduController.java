@@ -6,6 +6,8 @@ import View.JeuView.JPendu;
 import View.LayoutJeu.JSidebars.JPenduSidebar;
 import View.LayoutJeu.LayoutJeu;
 
+import java.io.IOException;
+
 public class PenduController extends MotsController
 {
     public PenduController(Pendu pendu)
@@ -21,8 +23,7 @@ public class PenduController extends MotsController
         this.addObserver();
     }
 
-    public void lettreChoisie(char lettre)
-    {
+    public void lettreChoisie(char lettre) throws IOException {
         ((Pendu) this.model).choisirLettre(lettre);
     }
 }

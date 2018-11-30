@@ -6,6 +6,7 @@ import View.LayoutJeu.LayoutJeu;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class JSudokuSidebar extends JSidebarJeu
 {
@@ -48,7 +49,13 @@ public class JSudokuSidebar extends JSidebarJeu
         add(val);
 
         validate = new JButton("Inserer valeur");
-        validate.addActionListener(arg0 -> ((SudokuController) this.layout.getController()).getModel().jouerTour(x.getText(),y.getText(),val.getText()));
+        validate.addActionListener(arg0 -> {
+            try {
+                ((SudokuController) this.layout.getController()).getModel().jouerTour(x.getText(),y.getText(),val.getText());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
         add(validate);
 
     }

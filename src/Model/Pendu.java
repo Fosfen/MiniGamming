@@ -1,8 +1,8 @@
 package Model;
 
 import Observer.Observer;
-
 import java.util.Scanner;
+import java.io.IOException;
 
 public class Pendu extends Mots
 {
@@ -43,8 +43,7 @@ public class Pendu extends Mots
     }
 
     // L'utilisateur choisi une lettre
-    public void choisirLettre(char lettre)
-    {
+    public void choisirLettre(char lettre) throws IOException {
         // On vérifie si la lettre est présente dans le mot réponse
         char lettreTemp = '\\';
         int i = 1;
@@ -89,14 +88,15 @@ public class Pendu extends Mots
     }
 
     // Un tour a été joué, on vérifie si la partie est terminée où si elle continue
-    protected void verifierFinPartie()
-    {
+    protected void verifierFinPartie() throws IOException {
         if (nbEssais == 8)
         {
             this.partieTerminee = true;
             if (this.progressionUser == this.reponse)
             {
                 this.partieGagnee = true;
+
+                ecrireScoreCSV("default","pendu");
             }
         }
     }
@@ -135,8 +135,7 @@ public class Pendu extends Mots
         return this.fileName;
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws IOException {
         Pendu pendu = new Pendu();
 
         for (int i = 0; i < pendu.progressionUser.length; i++)

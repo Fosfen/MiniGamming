@@ -1,6 +1,8 @@
 package Model;
 
 import Observer.Observer;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.*;
 import java.util.Random;
@@ -125,8 +127,7 @@ public class Motus extends Mots
 
     }
 
-    protected void verifierFinPartie()
-    {
+    protected void verifierFinPartie() throws IOException {
         if (this.nbEssais < 6)
         {
             for(int i=0;i<movePossible.length;i++){
@@ -146,9 +147,14 @@ public class Motus extends Mots
             this.partieTerminee = true;
             this.partieGagnee = false;
         }
+
+        ecrireScoreCSV("default","motus");
+        System.out.println("Gagné !!");
+        progress = false;
+
     }
 
-    public void jouerTour(String entree){
+    public void jouerTour(String entree) throws IOException {
         if(nbEssais<6){
             if(entree.length()==reponse.length){
                 faireUnChoix(entree.toUpperCase());
@@ -237,8 +243,7 @@ public class Motus extends Mots
 
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws IOException {
         Motus motus = new Motus();
         motus.affichageMot();
 
