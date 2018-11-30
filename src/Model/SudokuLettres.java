@@ -83,9 +83,7 @@ public class SudokuLettres extends AbstractSudoku{
     @Override
     public void jouerTour(String V, String X, String Y) throws IOException {
         String val = V;
-
         String x =X;
-
         String y = Y;
         insertElement(val,Integer.parseInt(x),Integer.parseInt(y));
         affichageSudoku();

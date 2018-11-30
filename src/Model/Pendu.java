@@ -4,6 +4,9 @@ import Observer.Observer;
 import java.util.Scanner;
 import java.io.IOException;
 
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Pendu extends Mots
 {
     private char[] progressionUser;
@@ -147,31 +150,26 @@ public class Pendu extends Mots
         return this.fileName;
     }
 
+
     public static void main(String[] args) throws IOException {
         Pendu pendu = new Pendu();
 
-        for (int i = 0; i < pendu.progressionUser.length; i++)
-        {
+        for (int i = 0; i < pendu.progressionUser.length; i++) {
             System.out.print(pendu.getProgressionUser()[i] + " ");
         }
 
-        while(!pendu.partieTerminee)
-        {
+        while (!pendu.partieTerminee) {
             Scanner sc = new Scanner(System.in);
             pendu.choisirLettre(sc.nextLine().charAt(0));
-            for (int i = 0; i < pendu.progressionUser.length; i++)
-            {
+            for (int i = 0; i < pendu.progressionUser.length; i++) {
                 System.out.print(pendu.getProgressionUser()[i] + " ");
             }
         }
 
-        if (pendu.partieGagnee)
-        {
+        if (pendu.partieGagnee) {
             System.out.println("Gagné !!");
-        }
-        else
-        {
+        } else {
             System.out.println("Perdu");
         }
-    }
-}
+    }}
+
