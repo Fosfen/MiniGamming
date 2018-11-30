@@ -50,4 +50,9 @@ public abstract class AbstractModel implements Observable
 
         fw.close();
     }
+
+    public int getScore()
+    {
+        return this.score;
+    }
 }

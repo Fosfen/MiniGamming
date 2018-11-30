@@ -42,4 +42,10 @@ public class JSudoku extends JGrille
             }
         }
     }
+
+    @Override
+    public void updateProgress(String progress)
+    {
+
+    }
 }

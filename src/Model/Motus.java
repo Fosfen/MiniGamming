@@ -117,11 +117,6 @@ public class Motus extends Mots
         }
     }
 
-    protected void initialisation(){
-        devoiler2Lettre();
-        affichageMot();
-    }
-
     @Override
     public void jouerTour() {
 
@@ -188,6 +183,7 @@ public class Motus extends Mots
             finPartie();
         }
 
+        this.notifyObserver();
         this.verifierFinPartie();
     }
 
@@ -229,8 +225,26 @@ public class Motus extends Mots
     }
 
     @Override
-    public void notifyObserver() {
+    public void notifyObserver()
+    {
+        for (Observer obs : this.observers)
+        {
+            obs.updateScore();
 
+            String progression = "";
+            for (int i = 0; i < this.reponse.length; i++)
+            {
+                if (this.movePossible[i] == "OK")
+                {
+                    progression += this.reponse[i];
+                }
+                else
+                {
+                    progression += this.choix.charAt(i);
+                }
+            }
+            obs.updateProgress(progression);
+        }
     }
 
     @Override

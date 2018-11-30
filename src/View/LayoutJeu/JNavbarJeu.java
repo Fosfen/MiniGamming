@@ -14,6 +14,7 @@ public class JNavbarJeu extends JPanel
 {
     // On conserve la référence du layout qui l'a chargée
     private LayoutJeu layout;
+    protected JLabel score;
 
     public JNavbarJeu(LayoutJeu layout)
     {
@@ -26,7 +27,7 @@ public class JNavbarJeu extends JPanel
         backbutton.addActionListener(arg0 -> Return());
         add(backbutton, BorderLayout.WEST);
 
-        JLabel score = new JLabel("Score : ");
+        this.score = new JLabel("Score : 0");
         score.setFont(f);
         add(score, BorderLayout.EAST);
     }

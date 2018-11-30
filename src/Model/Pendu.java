@@ -131,7 +131,14 @@ public class Pendu extends Mots
     {
         for (Observer obs : this.observers)
         {
-            // TODO
+            obs.updateScore();
+
+            String progression = "";
+            for (int i = 0; i < this.progressionUser.length; i++)
+            {
+                progression += this.progressionUser[i] +  " ";
+            }
+            obs.updateProgress(progression);
         }
     }
 

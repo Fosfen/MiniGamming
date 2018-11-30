@@ -6,17 +6,14 @@ import View.LayoutJeu.LayoutJeu;
 public abstract class AbstractController
 {
     protected AbstractModel model;
-    protected LayoutJeu jeuFront;
+    LayoutJeu jeuFront;
 
-    // TODO
-    // public abstract void finPartie()
-
-    public AbstractController(AbstractModel model)
+    AbstractController(AbstractModel model)
     {
         this.model = model;
     }
 
-    protected void addObserver()
+    void addObserver()
     {
         this.model.addObserver(this.jeuFront);
     }
