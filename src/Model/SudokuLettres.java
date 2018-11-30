@@ -83,9 +83,7 @@ public class SudokuLettres extends AbstractSudoku{
     @Override
     public void jouerTour(String V, String X, String Y) {
         String val = V;
-
         String x =X;
-
         String y = Y;
         insertElement(val,Integer.parseInt(x),Integer.parseInt(y));
         affichageSudoku();
@@ -104,5 +102,20 @@ public class SudokuLettres extends AbstractSudoku{
     @Override
     public void notifyObserver() {
 
+    }
+
+
+    public static void main(String[] args)
+    {
+        SudokuLettres sudoku = new SudokuLettres();
+
+        try
+        {
+            sudoku.jouerTour("A", "0", "0");
+        }
+        catch (Exception e)
+        {
+
+        }
     }
 }
