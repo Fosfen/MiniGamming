@@ -51,42 +51,45 @@ public abstract class AbstractModel implements Observable
             classementCurrent.add(line.split(";",2));
         }
 
-        ArrayList<Integer> classementScore = new ArrayList<>();
+        if(classementCurrent.size()>0){
+            ArrayList<Integer> classementScore = new ArrayList<>();
 
-        for(int i=0;i<classementCurrent.size();i++){
-            classementScore.add(Integer.parseInt(classementCurrent.get(i)[i]));
-        }
-
-        Collections.sort(classementScore);
-        Collections.reverse(classementScore);
-
-        ArrayList<String[]> result = new ArrayList<>();
-
-        int i=0;
-        while(i<classementScore.size() && i<10){
-            for(int j=0;j<classementCurrent.size();j++){
-                if(classementScore.get(i)==Integer.parseInt(classementCurrent.get(j)[0])){
-                    result.add(classementCurrent.get(j));
-                    classementCurrent.remove(j);
-                }
+            for(int i=0;i<classementCurrent.size();i++){
+                classementScore.add(Integer.parseInt(classementCurrent.get(i)[0]));
             }
-            i++;
-        }
 
-        if(type=="sudoku"){
-            classementSudoku=result;
-        }
-        else if(type=="sudokulettre"){
-            classementSudokuLettre=result;
-        }
-        else if(type=="pendu"){
-            classementPendu=result;
-        }
-        else if(type=="motus"){
-            classementMotus=result;
-        }
-        else if(type=="motsmeles"){
-            classementMotsMeles=result;
+            Collections.sort(classementScore);
+            Collections.reverse(classementScore);
+
+            ArrayList<String[]> result = new ArrayList<>();
+
+            int i=0;
+            while(i<classementScore.size() && i<10){
+                for(int j=0;j<classementCurrent.size();j++){
+                    if(classementScore.get(i)==Integer.parseInt(classementCurrent.get(j)[0])){
+                        result.add(classementCurrent.get(j));
+                        classementCurrent.remove(j);
+                        break;
+                    }
+                }
+                i++;
+            }
+
+            if(type=="sudoku"){
+                classementSudoku=result;
+            }
+            else if(type=="sudokulettre"){
+                classementSudokuLettre=result;
+            }
+            else if(type=="pendu"){
+                classementPendu=result;
+            }
+            else if(type=="motus"){
+                classementMotus=result;
+            }
+            else if(type=="motsmeles"){
+                classementMotsMeles=result;
+            }
         }
     }
 
