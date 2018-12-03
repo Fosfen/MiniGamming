@@ -15,12 +15,10 @@ public class JSudoku extends JGrille
         super(layout, 9, 9);
         this.model = s;
         this.chiffreSupport = new JPanel(new BorderLayout());
-
         for(int i=0 ; i < 9 ; i++){
             for(int j=0; j< 9 ; j++){
 
                 JPanel panelSupport = new JPanel(new BorderLayout());
-
                 panelSupport.setBackground(new Color(200,200,200));
                 panelSupport.setBorder(BorderFactory.createLineBorder(Color.black));
 
@@ -38,10 +36,10 @@ public class JSudoku extends JGrille
                     button.setBackground(new Color(147,190,230));
                     add(button);
                 }
-
             }
         }
     }
+
 
     @Override
     public void updateProgress(String progress)
