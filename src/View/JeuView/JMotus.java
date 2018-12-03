@@ -6,6 +6,7 @@ import View.LayoutJeu.LayoutJeu;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class JMotus extends JeuView
 {
@@ -33,7 +34,13 @@ public class JMotus extends JeuView
         saisie = new JTextField();
         saisie.setPreferredSize(new Dimension(900,25));
 
-        validate.addActionListener(arg0 -> ((MotusController) this.layout.getController()).propose(saisie.getText()));
+        validate.addActionListener(arg0 -> {
+            try {
+                ((MotusController) this.layout.getController()).propose(saisie.getText());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
         footer.add(saisie);
         footer.add(validate);
 
@@ -55,16 +62,21 @@ public class JMotus extends JeuView
 
             if(colorTab[i] == "OK")
             {
-                lettre.setForeground(new Color(255,0,0));       //On passe la lettre en rouge si elle est bien placée
+                lettre.setForeground(new Color(211, 51, 14));       //On passe la lettre en rouge si elle est bien placée
             }
             else if (colorTab[i] == "P")
             {
-                lettre.setForeground(new Color(255,255,0));     //On passe la lettre en jaune si elle contenue dans le mot
+                lettre.setForeground(new Color(255, 200, 47));     //On passe la lettre en jaune si elle contenue dans le mot
             }
             supportLettre.setBorder(BorderFactory.createLineBorder(Color.black));
             supportLettre.add(lettre);
             panel.add(supportLettre);
             panel.validate();
         }
+    }
+
+    public void updateProgress(String progress)
+    {
+        this.genererLignes(this.grid, progress.toCharArray(), ((Motus) this.layout.getController().getModel()).getMovePossible());
     }
 }

@@ -18,5 +18,9 @@ public abstract class JGrille extends JeuView {
         setLayout(new GridLayout(rows,cols));
     }
 
+    public void GenererGrille(){
+        //TODO methode a faire
+    }
+
 
 }

@@ -81,4 +81,18 @@ public class Sudoku extends AbstractSudoku {
     {
 
     }
+
+    public static void main(String[] args)
+    {
+        Sudoku sudoku = new Sudoku();
+
+        try
+        {
+            sudoku.jouerTour("0", "0", "9");
+        }
+        catch (Exception e)
+        {
+
+        }
+    }
 }

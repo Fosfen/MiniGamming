@@ -64,4 +64,10 @@ public class JPendu extends JeuView
 
         return label;
     }
+
+    public void updateProgress(String progress)
+    {
+        this.progress.setText(progress);
+        this.imgdebut.setIcon(((Pendu)this.layout.getController().getModel()).getFileName());
+    }
 }

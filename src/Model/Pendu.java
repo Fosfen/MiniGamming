@@ -1,8 +1,11 @@
 package Model;
 
 import Observer.Observer;
+import java.util.Scanner;
+import java.io.IOException;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Pendu extends Mots
 {
@@ -30,9 +33,15 @@ public class Pendu extends Mots
 
     private void initProgress()
     {
-        for (int i = 0; i < this.reponse.length; i++)
+        for (int i = 1; i < this.reponse.length; i++)
         {
             this.progressionUser[i] = '_';
+        }
+
+        try {
+            this.choisirLettre(this.reponse[0]);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -100,7 +109,8 @@ public class Pendu extends Mots
         }
     }
 
-    private void updateProgression(char lettre){
+    private void updateProgression(char lettre)
+    {
         for ( int i = 0 ; i < reponse.length ; i++)
         {
             if(lettre == reponse[i])
@@ -124,7 +134,14 @@ public class Pendu extends Mots
     {
         for (Observer obs : this.observers)
         {
-            // TODO
+            obs.updateScore();
+
+            String progression = "";
+            for (int i = 0; i < this.progressionUser.length; i++)
+            {
+                progression += this.progressionUser[i] +  " ";
+            }
+            obs.updateProgress(progression);
         }
     }
 
@@ -132,4 +149,27 @@ public class Pendu extends Mots
     {
         return this.fileName;
     }
-}
+
+
+    public static void main(String[] args) throws IOException {
+        Pendu pendu = new Pendu();
+
+        for (int i = 0; i < pendu.progressionUser.length; i++) {
+            System.out.print(pendu.getProgressionUser()[i] + " ");
+        }
+
+        while (!pendu.partieTerminee) {
+            Scanner sc = new Scanner(System.in);
+            pendu.choisirLettre(sc.nextLine().charAt(0));
+            for (int i = 0; i < pendu.progressionUser.length; i++) {
+                System.out.print(pendu.getProgressionUser()[i] + " ");
+            }
+        }
+
+        if (pendu.partieGagnee) {
+            System.out.println("Gagné !!");
+        } else {
+            System.out.println("Perdu");
+        }
+    }}
+
