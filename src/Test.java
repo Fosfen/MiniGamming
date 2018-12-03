@@ -15,5 +15,10 @@ public class Test {
 
         SudokuLettres s = new SudokuLettres();
         //s.jouer();
+
+        s.remplirClassement("sudoku");
+        for(int i=0;i<s.classementSudoku.size();i++){
+            System.out.println(s.classementSudoku.get(i)[0]+"  " +s.classementSudoku.get(i)[1]);
+        }
     }
 }
