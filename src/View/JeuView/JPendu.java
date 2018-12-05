@@ -9,6 +9,8 @@ import View.LayoutJeu.LayoutJeu;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * @author Duthoit Raphael, Delhalle Sebastien
@@ -32,7 +34,15 @@ public class JPendu extends JeuView
 
         progress = new JLabel(this.makeLabel(pendu.getProgressionUser()));
         progress.setHorizontalTextPosition(SwingConstants.CENTER);
-        Font f = new Font("Andika basic", Font.BOLD, 70);
+        Font f = null; //police pour dyslexiques
+        try {
+            f = Font.createFont(Font.TRUETYPE_FONT,new File("src/View/res/AndBasR.ttf") );
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        f=f.deriveFont( Font.BOLD,42);
         progress.setFont(f);
 
         //ajout du mot centré au panel

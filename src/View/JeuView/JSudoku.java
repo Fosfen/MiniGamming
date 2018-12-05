@@ -5,6 +5,8 @@ import View.LayoutJeu.LayoutJeu;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class JSudoku extends JGrille
 {
@@ -22,7 +24,15 @@ public class JSudoku extends JGrille
                 panelSupport.setBackground(new Color(200,200,200));
                 panelSupport.setBorder(BorderFactory.createLineBorder(Color.black));
 
-                Font f = new Font("Andika basic", Font.BOLD, 36);
+                Font f = null; //police pour dyslexiques
+                try {
+                    f = Font.createFont(Font.TRUETYPE_FONT,new File("src/View/res/AndBasR.ttf") );
+                } catch (FontFormatException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                f=f.deriveFont( Font.BOLD,42);
                 JButton button = new JButton(" ");
                 if (String.valueOf(s.getGrille()[i][j]).equals(new String("0"))){
                     button.setText(" ");
