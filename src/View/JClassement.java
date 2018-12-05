@@ -1,10 +1,14 @@
 package View;
 
+import Model.AbstractModel;
 import javafx.beans.binding.ObjectExpression;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import java.awt.*;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class JClassement extends JPanel {
 
@@ -15,20 +19,21 @@ public class JClassement extends JPanel {
     private JPanel panelClassementMotus;
 
 
-    private String[] cols = new String[] {"Position", "Score", "Pseudo" };
-    private Object[][] datasMotus = new Object[][]{{"1","Raphael",500},
-            {"2","Sebastien",400},
-            {"3","Julien", 200},
-            {"3","Julien", 200},{"3","Julien", 200},{"3","Julien", 200},{"3","Julien", 200},{"3","Julien", 200},{"3","Julien", 200},{"3","Julien", 200}
-};
-
-
-
-
+    private static String[] cols = new String[] {"Score", "Pseudo"};
+    private String[][] datasMotus;
+    private String[][] datasSudoku;
+    private String[][] datasSudokuLettres;
+    private String[][] datasPendu;
 
 
     public JClassement() {
         setLayout(new GridLayout(0,1));
+
+        //initialisation des listes de données
+        datasMotus = new String[][]{};
+        datasSudoku = new String[][]{};
+        datasSudokuLettres = new String[][]{};
+        datasPendu = new String[][]{};
 
         //Création des panels
         panelClassementMotus = new JPanel();
@@ -48,26 +53,40 @@ public class JClassement extends JPanel {
         JLabel labelSudoku = new JLabel("Classement sudoku :");
         JLabel labelSudokuLettre = new JLabel("Classement sudoku lettres :");
 
-
-        //Création classement Motus
-        CreerClassement(new Object[][]{{"1","Jean","205"}}, panelClassementMotus);
-
         //Ajout des labels dans les sous panels
         panelClassementMotus.add(labelMotus,BorderLayout.NORTH);
         panelClassementPendu.add(labelPendu,BorderLayout.NORTH);
         panelClassementSudoku.add(labelSudoku,BorderLayout.NORTH);
         panelClassementSudokuLettre.add(labelSudokuLettre,BorderLayout.NORTH);
 
-        //Création des classements
-        //TODO Création classement Motus
-        CreerClassement(datasMotus ,panelClassementMotus);
+        try {
+            ArrayList<String[]> classementSudoku = AbstractModel.remplirClassement("sudoku");
+            CreerClassement(classementSudoku,panelClassementSudoku);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        //TODO Création classement Pendu
-        CreerClassement(datasMotus,panelClassementPendu);
-        //TODO Création classement Sudoku
-        CreerClassement(datasMotus,panelClassementSudoku);
-        //TODO Création classement SudokuLettre
-        CreerClassement(datasMotus,panelClassementSudokuLettre);
+        try {
+            ArrayList<String[]> classementSudokuLettres = AbstractModel.remplirClassement("sudokulettre");
+            CreerClassement(classementSudokuLettres, panelClassementSudokuLettre);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            ArrayList<String[]> classementMotus = AbstractModel.remplirClassement("motus");
+            CreerClassement(classementMotus ,panelClassementMotus);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            ArrayList<String[]> classementPendu = AbstractModel.remplirClassement("pendu");
+            CreerClassement(classementPendu, panelClassementPendu);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         //Ajout des sous-panels au panel du classement
         add(panelClassementMotus);
         add(panelClassementPendu);
@@ -75,13 +94,25 @@ public class JClassement extends JPanel {
         add(panelClassementSudokuLettre);
     }
 
-    //Méthode permettant de créer des Jtables à partir d'une matrice d'objet
-    public void CreerClassement(Object[][] datas , JPanel panel){
-        JTable table = new JTable(datas,cols);
-        //TODO Empecher l'édition des cellules
+    //Méthode permettant de créer des Jtables à partir d'une ArrayList
+
+    public void CreerClassement(ArrayList<String[]> list, JPanel panel){
+        TableModel tableModel = new DefaultTableModel();
+        ((DefaultTableModel) tableModel).setColumnIdentifiers(cols);
+        JTable table = new JTable(tableModel);
+        table.setRowHeight(20);
+
+        for (int i = 0; i < list.size(); i++){
+            String score = list.get(i)[0];
+            System.out.println(list.get(i)[0]);
+            String pseudo = list.get(i)[1];
+            System.out.println(list.get(i)[1]);
+            Object[] data = {score,pseudo};
+            ((DefaultTableModel) tableModel).addRow(data);
+        }
+
         JScrollPane scrollPane = new JScrollPane(table);
         panel.add(scrollPane);
+
     }
-
-
 }

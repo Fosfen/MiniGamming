@@ -18,11 +18,7 @@ public abstract class AbstractModel implements Observable
     public abstract void jouerTour();
     protected abstract void verifierFinPartie() throws IOException;
 
-    public ArrayList<String[]> classementSudoku;
-    public ArrayList<String[]> classementSudokuLettre;
-    public ArrayList<String[]> classementPendu;
-    public ArrayList<String[]> classementMotus;
-    public ArrayList<String[]> classementMotsMeles;
+
 
     public AbstractModel()
     {
@@ -30,15 +26,25 @@ public abstract class AbstractModel implements Observable
         this.partieGagnee = false;
         this.score = 0;
 
-        this.classementSudoku=new ArrayList<>();
-        this.classementSudokuLettre=new ArrayList<>();
-        this.classementMotus=new ArrayList<>();
-        this.classementPendu=new ArrayList<>();
-        this.classementMotsMeles=new ArrayList<>();
+
     }
 
 
-    public void remplirClassement(String type) throws IOException {
+    public static ArrayList<String[]> remplirClassement(String type) throws IOException {
+        ArrayList<String[]> classementSudoku;
+        ArrayList<String[]> classementSudokuLettre;
+        ArrayList<String[]> classementPendu;
+        ArrayList<String[]> classementMotus;
+        ArrayList<String[]> classementMotsMeles;
+
+        classementSudoku=new ArrayList<>();
+        classementSudokuLettre=new ArrayList<>();
+        classementMotus=new ArrayList<>();
+        classementPendu=new ArrayList<>();
+        classementMotsMeles=new ArrayList<>();
+        ArrayList<String[]> ret =  new ArrayList<>();
+
+
 
         BufferedReader br = null;
         br = new BufferedReader(new FileReader("src/resCode/Classements/"+type+".csv"));
@@ -77,20 +83,27 @@ public abstract class AbstractModel implements Observable
 
             if(type=="sudoku"){
                 classementSudoku=result;
+                return classementSudoku;
             }
             else if(type=="sudokulettre"){
                 classementSudokuLettre=result;
+                return classementSudokuLettre;
             }
             else if(type=="pendu"){
                 classementPendu=result;
+                return classementPendu;
+
             }
             else if(type=="motus"){
                 classementMotus=result;
+                return classementMotus;
             }
             else if(type=="motsmeles"){
                 classementMotsMeles=result;
+                return classementMotsMeles;
             }
         }
+        return ret;
     }
 
     protected abstract void updateScore(int s);
